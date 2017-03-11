@@ -8,7 +8,12 @@ import './main.html';
 
 //CONSTRUCT THE SOUND BANK
 var sound = new Howl({
-  src: ['sound1.mp3', 'sound1.webm', 'sound1.wav']
+  src: ['cinterval.wav'],
+  sprite: {
+  	c1: [0, 690],
+  	cs1: [710, 680],
+  	d1: [1410, 680]
+  }
 });
 
 //sound.play();
@@ -26,7 +31,7 @@ if(Meteor.isClient)
 			event.preventDefault();
 			sound.stop(); //Stop previous sound from playing
 			console.log('you clicked me');
-			sound.play(); //play new sound
+			sound.play('d1'); //play new sound
 		}
 	});
 }
