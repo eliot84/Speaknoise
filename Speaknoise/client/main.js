@@ -1,15 +1,32 @@
 
-console.log('a');
 import { Meteor } from 'meteor/meteor';
 import howler from 'howler';
 
+import { Template } from 'meteor/templating';
+import './main.html';
 
-Tracker.autorun
-console.log('b');
+
+//CONSTRUCT THE SOUND BANK
 var sound = new Howl({
   src: ['sound1.mp3', 'sound1.webm', 'sound1.wav']
 });
 
-sound.play();
+//sound.play();
 
-console.log('done');
+
+
+
+if(Meteor.isClient)
+{
+
+
+	//CLICK A BOX MAKE A SOUND
+	Template.boxes.events({
+		'click [name=goal]': function(event){
+			event.preventDefault();
+			sound.stop(); //Stop previous sound from playing
+			console.log('you clicked me');
+			sound.play(); //play new sound
+		}
+	});
+}
