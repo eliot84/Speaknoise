@@ -5,3 +5,27 @@
 	width: 100px;
 	background-color: #FF801F;
 }
+
+.repeatPlay{
+	height: 225px;
+	width: 225px;
+	background-color: #FF801F;
+	padding-top: 25px;
+	padding-left: 25px;
+}
+
+.intNotePlayONE{
+	height: 100px;
+	width: 100px;
+	border-top: 25px;
+	border-left: 25px;
+	background-color: #7C100F;
+}
+.intNotePlayTWO{
+	height: 100px;
+	width: 100px;
+	border-top: 25px;
+	border-left: 25px;
+	background-color: #7C100F;
+	border-top: 10px;
+}

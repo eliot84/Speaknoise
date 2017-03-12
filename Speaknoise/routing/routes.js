@@ -5,3 +5,4 @@ Router.route('/', function () {
 });
 
 Router.route('referenceGuide');
+Router.route('earTrainer');
