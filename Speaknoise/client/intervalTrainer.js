@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { howler } from 'howler';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import './intervalTrainer';
+import './intervalTrainer.html';
 
 
 //CONSTRUCT THE SOUND BANK
@@ -13,23 +13,34 @@ var piano = new Howl({
   }
 });
 
+//Setup a new reactiveVar
 Template.intervalGUI.onCreated(function(){
-
+	this.avarian = new ReactiveVar(1);
 });
 
 
 Template.intervalGUI.events({
 
-	'click [name="repeatPlay"]':function(event){
+	'click [name="repeatPlay"]':function(event, template){
 		event.preventDefault();
 		console.log('you clicked me');
 		piano.play('40');
+
+		runningsum = Template.instance().avarian.get();
+
+		template.avarian.set(runningsum + 1);
 	}
 });
 
 
+Template.intervalGUI.helpers({
+	//access reactive var
+	clickCount(){
+		return Template.instance().avarian.get();
+	}
 
 
+});
 
 
 
