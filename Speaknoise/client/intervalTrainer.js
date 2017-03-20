@@ -43,7 +43,27 @@ Template.intervalGUI.helpers({
 });
 
 
+// intervals
+/*
+intervalArray = { 
+				 'unison': 0,
+				 'minor 2nd': 1,
+				 'Major 2nd': 2,
+				 'Minor 3rd': 3,
+				 'Major 3rd': 4,
+				 'Perfect 4th': 5,
+				 'A4d5': 6,
+				 'Minor 6th': 7,
+				 'Major 6th': 8,
+				 'Minor 7th': 9,
+				 'Major 7th': 10,
+				 'Perfect 8th: 11
+				 }
 
+
+
+
+*/
 
 
 /*
