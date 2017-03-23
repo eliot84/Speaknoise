@@ -11,4 +11,7 @@ Router.route('/', function () {
 });
 
 Router.route('eartrainer');
+
 Router.route('referenceGuide');
+
+
