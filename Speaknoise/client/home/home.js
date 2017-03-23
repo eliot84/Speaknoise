@@ -1,6 +1,7 @@
 import './home.html';
 import './assets/js/jquery.min.js';
 import './assets/js/jquery.scrolly.min.js';
+import './assets/js/jquery.scrolly.min.js';
 
 
 /*
