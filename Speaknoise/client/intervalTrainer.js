@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { howler } from 'howler';
 import { Template } from 'meteor/templating';
+import { Session } from 'meteor/session';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './intervalTrainer.html';
 
@@ -13,10 +14,91 @@ var piano = new Howl({
   }
 });
 
+/*
+
 //Setup a new reactiveVar
 Template.intervalGUI.onCreated(function(){
 	this.avarian = new ReactiveVar(1);
+	Session.set("myExam", "hello");
 });
+*/
+
+Template.selections.onCreated(function(){
+	Session.set('interval', false);
+	Session.set('selectables', { 'interval': false});
+});
+
+Template.selections.events({
+	'click [name="intervalMain"]': function(event, template){
+		event.preventDefault();
+
+		var newStatus = Session.get('selectables');
+		newStatus = !newStatus;
+		Session.set()
+
+		console.log(newInt['interval']);
+
+
+/*
+		newInt = !newInt;
+
+		Session.set('interval', newInt);
+		console.log('NEW: ' + Session.get('interval'));
+*/
+	
+
+
+
+
+	}
+});
+
+Template.selections.helpers({
+	stateColor(){
+
+		var intState = Session.get('interval');
+
+		if(intState)
+		{
+			return "orange";
+		}
+		else
+		{
+			return "white";
+		}
+	},
+
+	showIntervals(){
+		var status = Session.get('interval');
+		return status;
+	},
+
+	showChordQuality(){
+	 var status = Session.get('interval');
+	 return status;
+	},
+
+	showChordInversions(){
+		var status = Session.get('interval');
+		return status;
+	},
+
+	showArray(){
+		var status = Session.get("anArray");
+		var john = status["one"];
+		return john;
+	}
+
+
+
+
+});
+
+
+
+
+
+
 
 
 Template.intervalGUI.events({
@@ -29,7 +111,7 @@ Template.intervalGUI.events({
 		runningsum = Template.instance().avarian.get();
 
 		template.avarian.set(runningsum + 1);
-	}
+	},
 });
 
 
@@ -37,6 +119,10 @@ Template.intervalGUI.helpers({
 	//access reactive var
 	clickCount(){
 		return Template.instance().avarian.get();
+	},
+
+	displayThis(){
+    	return Session.get("myExam");
 	}
 
 
