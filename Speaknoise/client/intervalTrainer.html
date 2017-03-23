@@ -4,6 +4,10 @@
 
 
 <template name="intervalGUI">
+
+Here: {{displayThis}}<br /><br />
+
+
 	<div class="repeatPlay" name="repeatPlay">
 		<div class="intNotePlayONE"></div>
 		<div class="intNotePlayTWO"></div>
@@ -12,8 +16,19 @@
 </template>
 
 
-<template name="intervalOptions">
-<button type="button" class="btn btn-primary">Unison</button>
+<template name="yoyo">
+This is yoyo:
+{{displayer}}
+</template>
+
+<template name="selections">
+
+	{{showArray}}<br /><br /><br />
+<button type="button" name="intervalMain" class="btn btn-primary" style="background-color: {{stateColor}}">Interval</button> <br /><br />
+
+
+{{#if showIntervals}}
+<button type="button" class="btn btn-primary" >Unison</button>
 <button type="button" class="btn btn-primary">Minor 2nd</button>
 <button type="button" class="btn btn-primary">Major 2nd</button>
 <button type="button" class="btn btn-primary">Minor 3rd</button>
@@ -25,31 +40,33 @@
 <button type="button" class="btn btn-primary">Minor 7th</button>
 <button type="button" class="btn btn-primary">Major 7th</button>
 <button type="button" class="btn btn-primary">Perfect 8th</button>
-</template>
+{{/if}}
 
-<template name="chordOptions">
+<br />
+
+<button type="button" name="intervalMain" class="btn btn-primary" style="background-color: {{stateColor}}">Chord: Quality</button> <br /><br />
+
+{{#if showChordQuality}}
 <button type="button" class="btn btn-primary">Major</button>
 <button type="button" class="btn btn-primary">Minor</button>
 <button type="button" class="btn btn-primary">Augmented</button>
 <button type="button" class="btn btn-primary">Diminished</button>
-</template>
+{{/if}}
+<br /><br />
 
+<button type="button" name="intervalMain" class="btn btn-primary" style="background-color: {{stateColor}}">Chord: Inversions</button> <br /><br />
 
-<template name="chordInversions">
+{{#if showChordInversions}}
 <button type="button" class="btn btn-primary">Root</button>
 <button type="button" class="btn btn-primary">1st Inversion</button>
 <button type="button" class="btn btn-primary">2nd Inversion</button>
 <button type="button" class="btn btn-primary">3rd Inversion</button>
-
-
-
-</template>
-
-<template name="directionOptions">
+{{/if}}
+<br /><br />
 <button type="button" class="btn btn-primary">Ascending</button>
 <button type="button" class="btn btn-primary">Descending</button>
 <button type="button" class="btn btn-primary">All Together</button>
 
-
-
 </template>
+
+
