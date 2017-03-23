@@ -29,3 +29,28 @@
 	background-color: #7C100F;
 	border-top: 10px;
 }
+
+[name=intervalMain]{
+	background-color: white;
+	color: black;
+	border-color: black;
+    outline:none !important;
+
+
+}
+
+[name=intervalMain]:hover{
+	background-color: white;
+	color: black;
+	border-color: black;
+    outline:none !important;
+
+}
+
+[name=intervalMain]:focus{
+	background-color: white;
+	color: black;
+	border-color: black;
+	outline:none !important;
+
+}
