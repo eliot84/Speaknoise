@@ -24,44 +24,42 @@ This is yoyo:
 <template name="selections">
 
 	{{showArray}}<br /><br /><br />
-<button type="button" name="intervalMain" class="btn btn-primary" style="background-color: {{stateColor}}">Interval</button> <br /><br />
+<button type="button" name="selectable" class="btn btn-primary" value="intervals" style="background-color: {{intervalStatus}}">Interval Trainer</button> <br /><br />
 
 
 {{#if showIntervals}}
-<button type="button" class="btn btn-primary" >Unison</button>
-<button type="button" class="btn btn-primary">Minor 2nd</button>
-<button type="button" class="btn btn-primary">Major 2nd</button>
-<button type="button" class="btn btn-primary">Minor 3rd</button>
-<button type="button" class="btn btn-primary">Major 3rd</button>
-<button type="button" class="btn btn-primary">Perfect 4th</button>
-<button type="button" class="btn btn-primary">Perfect 5th</button>
-<button type="button" class="btn btn-primary">Minor 6th</button>
-<button type="button" class="btn btn-primary">Major 6th</button>
-<button type="button" class="btn btn-primary">Minor 7th</button>
-<button type="button" class="btn btn-primary">Major 7th</button>
-<button type="button" class="btn btn-primary">Perfect 8th</button>
+<button type="button" name="selectable" class="btn btn-primary" >Unison</button>
+<button type="button" name="selectable" class="btn btn-primary">Minor 2nd</button>
+<button type="button" name="selectable" class="btn btn-primary">Major 2nd</button>
+<button type="button" name="selectable" class="btn btn-primary">Minor 3rd</button>
+<button type="button" name="selectable" class="btn btn-primary">Major 3rd</button>
+<button type="button" name="selectable" class="btn btn-primary">Perfect 4th</button>
+<button type="button" name="selectable" class="btn btn-primary">Perfect 5th</button>
+<button type="button" name="selectable" class="btn btn-primary">Minor 6th</button>
+<button type="button" name="selectable" class="btn btn-primary">Major 6th</button>
+<button type="button" name="selectable" class="btn btn-primary">Minor 7th</button>
+<button type="button" name="selectable" class="btn btn-primary">Major 7th</button>
+<button type="button" name="selectable" class="btn btn-primary">Perfect 8th</button>
 {{/if}}
 
 <br />
 
-<button type="button" name="intervalMain" class="btn btn-primary" style="background-color: {{stateColor}}">Chord: Quality</button> <br /><br />
+<button type="button" name="selectable" class="btn btn-primary" value="cQuality" style="background-color: {{chordStatus}}">Chord Trainer</button> <br /><br /><br /><br />
 
-{{#if showChordQuality}}
-<button type="button" class="btn btn-primary">Major</button>
-<button type="button" class="btn btn-primary">Minor</button>
-<button type="button" class="btn btn-primary">Augmented</button>
-<button type="button" class="btn btn-primary">Diminished</button>
+{{#if showChords}}
+
+<button type="button" name="selectable" class="btn btn-primary">Major</button>
+<button type="button" name="selectable" class="btn btn-primary">Minor</button>
+<button type="button" name="selectable" class="btn btn-primary">Augmented</button>
+<button type="button" name="selectable" class="btn btn-primary">Diminished</button>
+<br /><br />
+<button type="button" name="selectable" class="btn btn-primary">Root</button>
+<button type="button" name="selectable" class="btn btn-primary">1st Inversion</button>
+<button type="button" name="selectable" class="btn btn-primary">2nd Inversion</button>
+<button type="button" name="selectable" class="btn btn-primary">3rd Inversion</button>
 {{/if}}
 <br /><br />
 
-<button type="button" name="intervalMain" class="btn btn-primary" style="background-color: {{stateColor}}">Chord: Inversions</button> <br /><br />
-
-{{#if showChordInversions}}
-<button type="button" class="btn btn-primary">Root</button>
-<button type="button" class="btn btn-primary">1st Inversion</button>
-<button type="button" class="btn btn-primary">2nd Inversion</button>
-<button type="button" class="btn btn-primary">3rd Inversion</button>
-{{/if}}
 <br /><br />
 <button type="button" class="btn btn-primary">Ascending</button>
 <button type="button" class="btn btn-primary">Descending</button>

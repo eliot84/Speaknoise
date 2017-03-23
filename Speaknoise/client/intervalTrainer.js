@@ -24,41 +24,89 @@ Template.intervalGUI.onCreated(function(){
 */
 
 Template.selections.onCreated(function(){
-	Session.set('interval', false);
-	Session.set('selectables', { 'interval': false});
+	Session.set('categories', false);
+//	Session.set('selectables', { 'categories': false});
+	Session.set('selectables', {'intervals': false, 'cQuality': false, 'cInversions': false});
+	Session.set('alphabet', {'a': 1, 'b': 2, 'c': 3});
 });
 
+//1 intervals
+//2 
+
+// if a button with the name selectable is clicked
+// determine which button was clicked
+// change status of button 
+//change visual look of button
+//show hide other buttons
+
+
+
+
+
+
 Template.selections.events({
-	'click [name="intervalMain"]': function(event, template){
+	'click [name="selectable"]': function(event, template){
 		event.preventDefault();
-
-		var newStatus = Session.get('selectables');
-		newStatus = !newStatus;
-		Session.set()
-
-		console.log(newInt['interval']);
-
-
-/*
-		newInt = !newInt;
-
-		Session.set('interval', newInt);
-		console.log('NEW: ' + Session.get('interval'));
-*/
 	
+		//GET BUTTON NAME
+		var x = $(event.target).val();
+		console.log('name' + x);
+
+		//GET SELECTABLES LIST
+		var status = Session.get('selectables');
+
+		//CHANGE THE BUTTON STATUS
+		status[x] = !status[x];
+	
+		//SAVE THE NEW SELECTABLES LIST
+		Session.set('selectables', status);
 
 
 
+		/* //TEST
+		var y = Session.get('selectables');
+		console.log('final' + y['intervals'] + y['cQuality'] + y['cInversions']);
+		*/
 
+	/*	
+// Change the array and then send the entire array back to session set.
+		var alpha = Session.get('alphabet');
+		console.log('alpha: ' + 'a:' + alpha['a'] + 'b: ' + alpha['b'] + 'c: ' + alpha['c']);
+
+		 alpha['a'] = 500;
+		console.log('alpha2: ' + 'a:' + alpha['a'] + 'b: ' + alpha['b'] + 'c: ' + alpha['c']);
+
+
+		Session.set(alphabet, alpha['a']);
+		var beta = Session.get('alphabet');
+		//console.log('beta: ' + 'a:' + beta['a'] + 'b: ' + beta['b'] + 'c: ' + beta['c']);
+*/
 	}
 });
 
 Template.selections.helpers({
-	stateColor(){
 
-		var intState = Session.get('interval');
+	intervalStatus(){
+		var status = Session.get('selectables');
+		if(status['intervals'])
+		{
+			console.log(status['intervals']);
+			return "orange";
+		}
+		else
+		{
+			console.log(status['intervals']);
+			return "white";
+		}
+	},
+	showIntervals(){
+		var status = Session.get('selectables');
+		return status['intervals'];
+	},
 
-		if(intState)
+		chordStatus(){
+		var status = Session.get('selectables');
+		if(status['cQuality'])
 		{
 			return "orange";
 		}
@@ -67,26 +115,9 @@ Template.selections.helpers({
 			return "white";
 		}
 	},
-
-	showIntervals(){
-		var status = Session.get('interval');
-		return status;
-	},
-
-	showChordQuality(){
-	 var status = Session.get('interval');
-	 return status;
-	},
-
-	showChordInversions(){
-		var status = Session.get('interval');
-		return status;
-	},
-
-	showArray(){
-		var status = Session.get("anArray");
-		var john = status["one"];
-		return john;
+	showChords(){
+		var status = Session.get('selectables');
+		return status['cQuality'];
 	}
 
 
@@ -99,7 +130,7 @@ Template.selections.helpers({
 
 
 
-
+/*
 
 Template.intervalGUI.events({
 
@@ -127,7 +158,7 @@ Template.intervalGUI.helpers({
 
 
 });
-
+*/
 
 // intervals
 /*

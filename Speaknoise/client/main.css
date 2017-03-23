@@ -30,7 +30,7 @@
 	border-top: 10px;
 }
 
-[name=intervalMain]{
+[name=selectable]{
 	background-color: white;
 	color: black;
 	border-color: black;
@@ -39,7 +39,7 @@
 
 }
 
-[name=intervalMain]:hover{
+[name=selectable]:hover{
 	background-color: white;
 	color: black;
 	border-color: black;
@@ -47,10 +47,14 @@
 
 }
 
-[name=intervalMain]:focus{
+[name=selectable]:focus{
 	background-color: white;
 	color: black;
 	border-color: black;
 	outline:none !important;
 
+}
+
+.classer{
+	background-color: purple;
 }
