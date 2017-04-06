@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web');
+
+
+/* TYPOGRAPHY */
+
+h1, h2, h3, h4, h5, h6{
+font-family: 'Titillium Web', sans-serif;
+color: red;
+}
+
+p div button{
+font-family: 'Open Sans', sans-serif;
+}
+
+
+
+.whiteText{
+	color: #ffffff;
+}
+
+
+
+
+
+
+.formHolder{
+	display: block;
+	margin:0 auto;
+
+}
+
+.center{
+	  position: absolute;
+/*  top: 0;
+  bottom: 0; */
+  left: 0;
+  right: 0;
+  margin: auto;  
+}
+
+
+
+
+.aBox{
+	height: auto;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: black;
+}
+
+.repeatPlay{
+	height: 225px;
+	width: 225px;
+	background-color: #FF801F;
+	padding-top: 25px;
+	padding-left: 25px;
+}
+
+.intNotePlayONE{
+	height: 100px;
+	width: 100px;
+	border-top: 25px;
+	border-left: 25px;
+	background-color: #7C100F;
+}
+.intNotePlayTWO{
+	height: 100px;
+	width: 100px;
+	border-top: 25px;
+	border-left: 25px;
+	background-color: #7C100F;
+	border-top: 10px;
+}
+
+#layoutOne{
+	width: 100%;
+	background-color: #ff6600;
+	    margin: 0 auto;
+}
+
+[section=two]{
+	width: 100%;
+	height: 600px;
+	background-color: #ffffff;
+	    margin: 0 auto;
+}
+
+
+[section=three]{
+	width: 100%;
+	height: 600px;
+	background-color: #ff6600;
+	    margin: 0 auto;
+}
+
+[section=four]{
+	width: 100%;
+	height: 600px;
+	background-color: #ffffff;
+	    margin: 0 auto;
+}
+
+[section=five]{
+	width: 100%;
+	height: 600px;
+	background-color: #ff6600;
+	    margin: 0 auto;
+}
+
+[name=selectable]{
+	background-color: white;
+	color: black;
+	border-color: black;
+    outline:none !important;
+
+
+}
+
+[name=selectable]:hover{
+	background-color: white;
+	color: black;
+	border-color: black;
+    outline:none !important;
+
+}
+
+[name=selectable]:focus{
+	background-color: white;
+	color: black;
+	border-color: black;
+	outline:none !important;
+
+}
+
+.classer{
+	background-color: purple;
+}
+
+.img-center {
+	margin:0 auto;
+}
+
+.form-center {
+	margin-left: auto;
+	margin-right: auto;
+	}
