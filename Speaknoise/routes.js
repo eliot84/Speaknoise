@@ -12,5 +12,6 @@ Router.route('/', function () {
 
 Router.route('earTrainerIntervals');
 Router.route('referenceGuide');
+Router.route('charts');
 
 

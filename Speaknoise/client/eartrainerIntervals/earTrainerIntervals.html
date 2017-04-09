@@ -2,7 +2,9 @@
 
 <template name="earTrainerIntervals">
 <div class="header">
-<img src="./logo.png"  >
+<a href="{{pathFor route='/'}}">
+<img src="./logosmall.png" class="logoimage" >
+</a>
 </div>
 
 
@@ -11,7 +13,7 @@
 
 
 <div class="container">
-	<h1>Ear Trainer: Intervals</h1>
+	<h1>Ear Trainer: Intervals</h1><br /><br />
 
 <div class="row align-items-center" >
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
@@ -19,6 +21,7 @@
 
 			<div class="sound" id="soundA"></div>
 			<div class="sound" id="soundB"></div>
+			<button class="btn btn-default" id="repeat">Play Again</button>
 			<div class="choices">
 			<button class="btn btn-default" id="choiceA">{{choiceA}}</button>
 			<button class="btn btn-default" id="choiceB">{{choiceB}}</button>
@@ -45,9 +48,9 @@
 <div class="row text-center">
 
 <button class="btn btn-default" name="start" id="startBtn">Start</button><br /> <br /><br />
-<br /><br />
-<button class="btn btn-default" name="selectable" id="0">Seperately</button>
-<button class="btn btn-default" name="selectable" id="0">Together</button>
+
+<button class="btn btn-default" id="seperately">Seperately</button>
+<button class="btn btn-default" id="together">Together</button>
 
 
 <br /><br />
@@ -66,6 +69,9 @@
 <button class="btn btn-default" name="selectable" id="11">Major 7th</button>
 <button class="btn btn-default" name="selectable" id="12">Perfect 8th</button>
 </div>
+
 </div> <!--container -->
+<div class="footer"></div>
+
 	
 </template>
