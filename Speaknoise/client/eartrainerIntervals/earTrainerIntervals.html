@@ -1,0 +1,71 @@
+
+
+<template name="earTrainerIntervals">
+<div class="header">
+<img src="./logo.png"  >
+</div>
+
+
+
+
+
+
+<div class="container">
+	<h1>Ear Trainer: Intervals</h1>
+
+<div class="row align-items-center" >
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
+		<div id="trainerWindow" class="text-center">
+
+			<div class="sound" id="soundA"></div>
+			<div class="sound" id="soundB"></div>
+			<div class="choices">
+			<button class="btn btn-default" id="choiceA">{{choiceA}}</button>
+			<button class="btn btn-default" id="choiceB">{{choiceB}}</button>
+		</div>
+			<br /><Br />	
+		</div>  <!-- trainerwindow -->
+	</div><!-- col 1 -->
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="scoreWindow">
+			<h2 class="whiteText">Score:</h2><br />
+
+			<div class="score">
+			<h3 id="score" class="whiteText">Total Count: {{scoreTotal}}  <br /><br />
+											 Total Correct: {{scorePoints}}
+			</h3>
+			</div>
+		</div> <!-- scorewindow -->
+	</div><!-- col 2 -->
+</div> <!-- Row -->
+
+
+
+
+<div class="row text-center">
+
+<button class="btn btn-default" name="start" id="startBtn">Start</button><br /> <br /><br />
+<br /><br />
+<button class="btn btn-default" name="selectable" id="0">Seperately</button>
+<button class="btn btn-default" name="selectable" id="0">Together</button>
+
+
+<br /><br />
+<h4 id="textIntro">Select the Intervals you wish to practice and press Start to begin.</h4>
+<button class="btn btn-default" name="selectable" id="0">Unison</button>
+<button class="btn btn-default" name="selectable" id="1">Minor 2nd</button>
+<button class="btn btn-default" name="selectable" id="2">Major 2nd</button>
+<button class="btn btn-default" name="selectable" id="3">Minor 3rd</button>
+<button class="btn btn-default" name="selectable" id="4">Major 3rd</button>
+<button class="btn btn-default" name="selectable" id="5">Perfect 4th</button>
+<button class="btn btn-default" name="selectable" id="6">Augmented 4th / Diminished 5th</button>
+<button class="btn btn-default" name="selectable" id="7">Perfect 5th</button>
+<button class="btn btn-default" name="selectable" id="8">Minor 6th</button>
+<button class="btn btn-default" name="selectable" id="9">Major 6th</button>
+<button class="btn btn-default" name="selectable" id="10">Minor 7th</button>
+<button class="btn btn-default" name="selectable" id="11">Major 7th</button>
+<button class="btn btn-default" name="selectable" id="12">Perfect 8th</button>
+</div>
+</div> <!--container -->
+	
+</template>

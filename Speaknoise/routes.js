@@ -10,8 +10,7 @@ Router.route('/', function () {
   this.render('Home');
 });
 
-Router.route('eartrainer');
-
+Router.route('earTrainerIntervals');
 Router.route('referenceGuide');
 
 
