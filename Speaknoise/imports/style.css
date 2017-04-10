@@ -262,7 +262,10 @@ margin-left: 50px;
 	color: #ff6600;
 }
 
-
+.aButton{
+	background-color: white;
+	color: #ff6600;
+}
 
 .footer{
 	position: absolute;

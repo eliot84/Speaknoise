@@ -8,7 +8,7 @@ Session.set("btnStatus", {0: false, 1: false, 2: false, 3: false, 4: false, 5: f
 Session.set("playSounds", []);
 Session.set("currentPlay", [0, 0, 0, 0,]); //0: 1 on/ 0 off, button answer
 Session.set("intervals", ["Unison", "Minor 2nd", "Major 2nd", "Minor 3rd", "Major 3rd", "Perfect 4th", "Aug 4th / Diminished 5th", "Perfect 5th", "Minor 6th", "Major 6th", "Minor 7th", "Major 7th", "Perfect 8th"]);
-Session.set("scoring", [0, 0]);
+Session.set("scoring", ['Interval Ear Trainer', 0, 0]);
 Session.set("playMode", [true]);
 
 //CONSTRUCT THE SOUND BANK
@@ -25,15 +25,12 @@ this.$('#seperately').css("background-color","#ff6600");
 this.$('#seperately').css("color","#000000");
 this.$('#together').css("background-color","#ffffff");
 this.$('#together').css("color","#ff6600");
-
-
 this.$("#choiceA").hide();
 this.$("#choiceB").hide();
 this.$("#soundA").hide();
 this.$("#soundB").hide();
 this.$("#score").hide();
 this.$("#repeat").hide();
-
 this.$(".scoreWindow").hide();
 this.$("#trainerWindow").hide();
 });
@@ -72,7 +69,6 @@ Tracker.autorun(function(){
 
 
 	if(playMode[0]){
-		console.log("playing back seperately");
 			piano.play(soundA);
 				piano.once('end', function(){
 					showNoteOne();
@@ -85,7 +81,6 @@ Tracker.autorun(function(){
 	}
 	else
 	{
-		console.log("playing back together");
 			piano.play(soundA);
 			piano.play(soundB);
 
@@ -151,7 +146,7 @@ Template.earTrainerIntervals.events({
 		else
 		{
 			//INTERFACE CHANGES
-			template.$("#startBtn").attr("id", "setupBtn");
+			template.$("#startBtn").attr("id", "endBtn");
 			template.$("#setupBtn").text("End Session");
 			template.$("#textIntro").text("");
 			template.$('[name=selectable]').css("visibility", "hidden");
@@ -166,26 +161,14 @@ Template.earTrainerIntervals.events({
 
 			//CURRENT PLAY SESSION
 			Session.set('currentPlay', [2]);
+			Session.set("scoring", ["Interval Ear Trainer", 0, 0]);
+
 		}
 	},
 
 	//Click the Setup Button
-	'click [id="setupBtn"]': function(event, template){
-		template.$("#setupBtn").attr("id", "startBtn");
-		template.$("#startBtn").text("Start");
-	    template.$("#textIntro").text("Select the Intervals you wish to practice and press Start to begin.");
-		template.$('[name=selectable]').css("visibility", "visible");
-		template.$("#choiceA").hide();
-		template.$("#choiceB").hide();
-		template.$("#soundA").hide();
-		template.$("#soundB").hide();
-		template.$("#score").hide();
-		template.$(".scoreWindow").hide();
-		template.$("#trainerWindow").hide();
-		template.$("#seperately").show();
-		template.$("#together").show();
-
-		Session.set("scoring", [0, 0]);
+	'click [id="endBtn"]': function(event, template){	
+		    Router.go('/score');
 	},
 
 	'click [id="seperately"]': function(event, template){
@@ -211,7 +194,6 @@ Template.earTrainerIntervals.events({
 Session.set("playMode", [false]);
 	},
 
-	//Click Choice A
 	'click [id="choiceA"]':function(event, template){
 		event.preventDefault();
 		resetGameButtons(template);
@@ -220,15 +202,14 @@ Session.set("playMode", [false]);
 
 		if(currPlay[3] == 0)
 		{
-		Session.set('scoring', [currScore[0] + 1, currScore[1] + 1]);
+		Session.set('scoring', ['Interval Ear Trainer', currScore[1] + 1, currScore[2] + 1]);
 		Session.set('currentPlay', [2]);
 		template.$('#trainerWindow').css("background-color","#Ff6600");
 		}
 		else{
 			template.$('#trainerWindow').css("background-color","#FB1511");
-			//template.$('#trainerWindow').fadeOut();
-			//template.$('#trainerWindow').animate({"backgroundColor","ff3506"}, 2000);
-			Session.set('scoring', [currScore[0] + 1, currScore[1]]);
+
+			Session.set("scoring", ['Interval Ear Trainer', currScore[1] + 1, currScore[2] ]);
 			Session.set('currentPlay', [2]);
 		}
 
@@ -242,16 +223,15 @@ Session.set("playMode", [false]);
 
 
 		if(currPlay[3] == 1){
-		Session.set('scoring', [currScore[0] + 1, currScore[1] + 1]);
+		Session.set('scoring', ['Interval Ear Trainer', currScore[1] + 1, currScore[2] + 1]);
 		Session.set('currentPlay', [2]);
 		template.$('#trainerWindow').css("background-color","#Ff6600");
 
 		}
 		else{
 			template.$('#trainerWindow').css("background-color","#FB1511");
-			  //template.$('#trainerWindow').animate({"backgroundColor","ff3506"}, 2000);
 
-			Session.set('scoring', [currScore[0] + 1, currScore[1]]);
+			Session.set('scoring', ['Interval Ear Trainer', currScore[1] + 1, currScore[2]]);
 			Session.set('currentPlay', [2]);
 		}
 	},
@@ -331,12 +311,12 @@ Template.earTrainerIntervals.helpers({
 
 	scoreTotal(){
 		var curr = Session.get("scoring");
-		return curr[0];
+		return curr[1];
 	},
 
 	scorePoints(){
 		var curr = Session.get("scoring");
-		return curr[1];
+		return curr[2];
 	},
 
 

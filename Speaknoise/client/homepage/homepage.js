@@ -1,8 +1,9 @@
-import './home.html';
+import { Template } from 'meteor/templating';
+import './homepage.html';
 import '/imports/style.css';
 
 
-Template.home.events({
+Template.homepage.events({
 	'click [name=subscribeSubmit]': function(){
 		event.preventDefault();
 

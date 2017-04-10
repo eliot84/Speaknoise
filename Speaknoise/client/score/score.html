@@ -1,0 +1,31 @@
+
+
+
+<template name="score">
+<div class="header">
+<a href="{{pathFor route='homepage'}}">
+<img src="./logosmall.png" class="logoimage" >
+</a>
+</div>
+
+<div class="container">
+	<br /><br /><br />
+	<a href="{{pathFor route='homepage'}}">
+	<button class="btn btn-default">Home</button></a>
+
+	<a href="{{pathFor route='earTrainerIntervals'}}">
+	<button class="btn btn-default">New Session</button></a>
+
+	<h2>Score:</h2>
+	<h3>Total Count: {{scoreTotal}}<br />
+		Total Correct: {{scoreCorrect}}</h3>
+</div>
+
+<!--<canvas id="scoreChart" width="400" height="400"></canvas>-->
+
+<div class="footer"></div>
+
+
+</template>
+
+

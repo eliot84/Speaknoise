@@ -7,11 +7,12 @@ Router.configure({
 
 
 Router.route('/', function () {
-  this.render('Home');
+  this.render('homepage');
 });
 
+Router.route('homepage');
 Router.route('earTrainerIntervals');
 Router.route('referenceGuide');
-Router.route('charts');
+Router.route('score');
 
 
