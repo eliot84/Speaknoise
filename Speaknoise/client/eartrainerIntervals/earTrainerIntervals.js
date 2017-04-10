@@ -8,8 +8,13 @@ Session.set("btnStatus", {0: false, 1: false, 2: false, 3: false, 4: false, 5: f
 Session.set("playSounds", []);
 Session.set("currentPlay", [0, 0, 0, 0,]); //0: 1 on/ 0 off, button answer
 Session.set("intervals", ["Unison", "Minor 2nd", "Major 2nd", "Minor 3rd", "Major 3rd", "Perfect 4th", "Aug 4th / Diminished 5th", "Perfect 5th", "Minor 6th", "Major 6th", "Minor 7th", "Major 7th", "Perfect 8th"]);
-Session.set("scoring", ['Interval Ear Trainer', 0, 0]);
-Session.set("playMode", [true]);
+Session.set("playMode", [true]); //Changes between mono and poly intervals
+
+Session.set("scoring", ['Interval Ear Trainer', 0, 0]); // 0 trainer 1 the question 2 is it right or wrong
+Session.set("results", []);//  0: "question" 1: questionTotalCount 2: questionTotalWrong
+Session.set("userChoice", []);
+
+
 
 //CONSTRUCT THE SOUND BANK
 var piano = new Howl({
@@ -43,9 +48,12 @@ this.$("#trainerWindow").hide();
 //If New Interval is set to play
 Tracker.autorun(function(){
 	var curr = Session.get('currentPlay');
+	var results = Session.get('results');
+	console.log("it is me!");
 
 	if(curr[0] == 2 )
 	{
+		console.log("we are in!!!");
 		var playList = Session.get("playSounds");
 		var intervals = Session.get("intervals");
 		var playMode = Session.get("playMode");
@@ -58,6 +66,10 @@ Tracker.autorun(function(){
 		//ASSIGN THE SOUNDS TO PLAY
 		var soundA = Math.floor(Math.random() * 48 + 1);
 		var soundB = Number(answer); //interval semitone 
+
+		results.push([intervals[answer], 5]);
+		console.log('the answer is: ' + answer);
+
 
 		soundB = soundB + soundA; //actual note to play
 
@@ -124,9 +136,49 @@ Tracker.autorun(function(){
 		Session.set("currentPlay", [0, soundA, soundB, randest]);
 	    //Session.set("currentPlay", [0, soundA, soundB, choices[0], choices[1], answer]);
 
+	    Session.set("results", results);
+	   // Session.set("results", [ ["intervals",0, 0,], ["minor 3rd", 1, 1] ]);
 	
 	}
 });
+
+  //User has decided an answer and is ready to move on to the next problem. (Score, results gui update)
+  Tracker.autorun(function(){
+
+		 var choice = Session.get("userChoice");
+
+		if(choice[0] == 1)
+		{
+
+			console.log("yayauh");
+			var currScore = Session.get('scoring');
+			var currPlay = Session.get('currentPlay');
+			var results = Session.get('results');
+			
+			var curr = results.length - 1;
+			results[curr][1] = 1;
+
+			Session.set('scoring', ['Interval Ear Trainer', currScore[1] + 1, currScore[2] + 1]);
+			Session.set('results', results);
+			this.$('#trainerWindow').css("background-color","#Ff6600");
+			Session.set('userChoice', [30]);
+		}
+		if(choice[0] == 0)
+		{
+			var currPlay = Session.get('currentPlay');
+			var currScore = Session.get('scoring');
+			var results = Session.get('results');
+
+			var curr = results.length - 1;
+			results[curr][1] = 0;
+			
+			this.$('#trainerWindow').css("background-color","#FB1511");
+			Session.set("scoring", ['Interval Ear Trainer', currScore[1] + 1, currScore[2] ]);
+			Session.set('results', results);
+
+			Session.set('userChoice', [30]);
+		} 
+	});
 
 
 
@@ -147,7 +199,7 @@ Template.earTrainerIntervals.events({
 		{
 			//INTERFACE CHANGES
 			template.$("#startBtn").attr("id", "endBtn");
-			template.$("#setupBtn").text("End Session");
+			template.$("#endBtn").text("End Session");
 			template.$("#textIntro").text("");
 			template.$('[name=selectable]').css("visibility", "hidden");
 			template.$("#score").show();
@@ -162,7 +214,7 @@ Template.earTrainerIntervals.events({
 			//CURRENT PLAY SESSION
 			Session.set('currentPlay', [2]);
 			Session.set("scoring", ["Interval Ear Trainer", 0, 0]);
-
+			Session.set("results", ["intervals"]);
 		}
 	},
 
@@ -191,47 +243,41 @@ Template.earTrainerIntervals.events({
 			template.$('#seperately').css("background-color","#ffffff");
 			template.$('#seperately').css("color","#ff6600");
 
-Session.set("playMode", [false]);
+			Session.set("playMode", [false]);
 	},
+
 
 	'click [id="choiceA"]':function(event, template){
 		event.preventDefault();
+		
 		resetGameButtons(template);
 		var currPlay = Session.get('currentPlay');
-		var currScore = Session.get('scoring');
+
 
 		if(currPlay[3] == 0)
 		{
-		Session.set('scoring', ['Interval Ear Trainer', currScore[1] + 1, currScore[2] + 1]);
-		Session.set('currentPlay', [2]);
-		template.$('#trainerWindow').css("background-color","#Ff6600");
+			Session.set("userChoice", [1]);	
+			Session.set('currentPlay', [2]);
 		}
 		else{
-			template.$('#trainerWindow').css("background-color","#FB1511");
-
-			Session.set("scoring", ['Interval Ear Trainer', currScore[1] + 1, currScore[2] ]);
+			Session.set("userChoice", [0]);
 			Session.set('currentPlay', [2]);
 		}
 
 	},
-		//Click Choice B
 	'click [id="choiceB"]':function(event, template){
 		event.preventDefault();
+		
 		resetGameButtons(template);
 		var currPlay = Session.get('currentPlay');
-		var currScore = Session.get('scoring');
 
 
 		if(currPlay[3] == 1){
-		Session.set('scoring', ['Interval Ear Trainer', currScore[1] + 1, currScore[2] + 1]);
-		Session.set('currentPlay', [2]);
-		template.$('#trainerWindow').css("background-color","#Ff6600");
-
+			Session.set("userChoice", [1]);	
+			Session.set('currentPlay', [2]);
 		}
 		else{
-			template.$('#trainerWindow').css("background-color","#FB1511");
-
-			Session.set('scoring', ['Interval Ear Trainer', currScore[1] + 1, currScore[2]]);
+			Session.set("userChoice", [0]);
 			Session.set('currentPlay', [2]);
 		}
 	},

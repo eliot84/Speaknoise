@@ -2,6 +2,8 @@
 
 
 <template name="score">
+
+
 <div class="header">
 <a href="{{pathFor route='homepage'}}">
 <img src="./logosmall.png" class="logoimage" >
@@ -17,11 +19,22 @@
 	<button class="btn btn-default">New Session</button></a>
 
 	<h2>Score:</h2>
-	<h3>Total Count: {{scoreTotal}}<br />
-		Total Correct: {{scoreCorrect}}</h3>
-</div>
+	<h4>Trainer: {{scoreTrainerType}}<br /><br />
+		Total Count: {{scoreTotal}}<br />
+		Total Correct: {{scoreCorrect}}</h4><br />
 
-<!--<canvas id="scoreChart" width="400" height="400"></canvas>-->
+
+		{{#each scoreQuestionType}}
+		<h4>{{this}}</h4>
+		<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="70"
+  aria-valuemin="0" aria-valuemax="100" style="width:70%">
+    <span class="sr-only">70% Complete</span>
+  </div>
+</div>
+		{{/each}}
+
+</div>
 
 <div class="footer"></div>
 

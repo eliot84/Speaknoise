@@ -280,3 +280,9 @@ margin-left: 50px;
   outline: none;
 }
 
+
+/* SCORE */
+.progress-bar{
+	background-color: #ff6600;
+}
+
