@@ -18,26 +18,27 @@
 	<a href="{{pathFor route='earTrainerIntervals'}}">
 	<button class="btn btn-default">New Session</button></a>
 
-	<h2>Score:</h2>
-	<h4>Trainer: {{scoreTrainerType}}<br /><br />
-		Total Count: {{scoreTotal}}<br />
-		Total Correct: {{scoreCorrect}}</h4><br />
+	<h2>Score</h2> <br />
+	<h4> Total Count: {{scoreTotal}}</h4>
+	<h4> Total Correct: {{scoreCorrect}} </h4><br />
 
+		{{#each theResults}} 
+<h4>{{problem}}: </h4>
 
-		{{#each scoreQuestionType}}
-		<h4>{{this}}</h4>
-		<div class="progress">
+	<div class="progress">
   <div class="progress-bar" role="progressbar" aria-valuenow="70"
-  aria-valuemin="0" aria-valuemax="100" style="width:70%">
-    <span class="sr-only">70% Complete</span>
+  aria-valuemin="0" aria-valuemax="100" style="width:{{correctPercent}}%">
   </div>
 </div>
-		{{/each}}
+      <p class="fixSubTotal">Sub-total: {{totalProblem}} Correct: {{correctProblem}}</p>
+<br /><br />
+{{/each}}
+	
 
+		 <br /><br /><br />
 </div>
 
 <div class="footer"></div>
-
 
 </template>
 

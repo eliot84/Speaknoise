@@ -13,11 +13,19 @@
 
 
 <div class="container">
-	<br /><br />
+	<br /><br /><br />
 	<a href="{{pathFor route='homepage'}}">
 	<button class="btn btn-default">Home</button></a>
+	
+	<h2>Ear Trainer: Intervals</h2>
+	<div id="trainerIntro">
+	<p>Intervals are the building blocks of musical sounds that in pattern can be used to create melodies &amp; harmonies. Learning to identify what specific sounds through hearing will improve your abilities to identify &amp; playback music you hear, as well as creating new music and improvisation.</p> 
 
-	<h1>Ear Trainer: Intervals</h1><br /><br />
+	<p>For those of you who are new to Ear Training, check out the Intervals reference section : <a href="#">Ear Training Intervals Reference Guide.</a></p>
+	</div>
+
+
+		<br /><br />
 
 <div class="row align-items-center" >
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
@@ -27,6 +35,8 @@
 			<div class="sound" id="soundB"></div>
 			<button class="btn btn-default" id="repeat">Play Again</button>
 			<div class="choices">
+							<p id="choiceComment"> Answer Incorrect </p>
+
 			<button class="btn btn-default" id="choiceA">{{choiceA}}</button>
 			<button class="btn btn-default" id="choiceB">{{choiceB}}</button>
 		</div>
@@ -38,8 +48,8 @@
 			<h2 class="whiteText">Score:</h2><br />
 
 			<div class="score">
-			<h3 id="score" class="whiteText">Total Count: {{scoreTotal}}  <br /><br />
-											 Total Correct: {{scorePoints}}
+			<h3 id="score" class="whiteText">Total Correct: {{scorePoints}} <br /><br />
+											 Total Count: {{scoreTotal}} 
 			</h3>
 			</div>
 		</div> <!-- scorewindow -->

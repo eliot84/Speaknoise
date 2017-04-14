@@ -1,16 +1,29 @@
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import { howler } from 'howler';
-import './earTrainerIntervals.html';
+import './earTrainerChords.html';
 
+/*
+//<button class="btn btn-default" name="selectable" id="0">Major</button>
+//<button class="btn btn-default" name="selectable" id="1">Minor</button>
+<button class="btn btn-default" name="selectable" id="2">Augmented</button>
+<button class="btn btn-default" name="selectable" id="3">Diminished</button>
+<button class="btn btn-default" name="selectable" id="4">Major 7th</button>
+<button class="btn btn-default" name="selectable" id="5">Minor 7th</button>
+<button class="btn btn-default" name="selectable" id="6">Half Diminished 7th</button>
+<button class="btn btn-default" name="selectable" id="7">Diminished 7th</button>
+<button class="btn btn-default" name="selectable" id="8">Dominant 7th</button>
+<button class="btn btn-default" name="selectable" id="9">Major 6th</button>
 
 Session.set("btnStatus", {0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false, 12: false});
 Session.set("playSounds", []);
 Session.set("currentPlay", [0, 0, 0, 0,]); //0: 1 on/ 0 off, button answer
-Session.set("intervals", ["Unison", "Minor 2nd", "Major 2nd", "Minor 3rd", "Major 3rd", "Perfect 4th", "Aug 4th / Diminished 5th", "Perfect 5th", "Minor 6th", "Major 6th", "Minor 7th", "Major 7th", "Perfect 8th"]);
+Session.set("EarTrainerChords", [ ["Major", 0, 4, 7], ["Minor", 0, 3, 7], ["Diminished", 0, 3, 6], ["Augmented", 0, 3, 8] ];
+
+	//["Major", "Minor", "Augmented", "Diminished", "Major 7th", "Minor 7th", "Half Diminished 7th", "", "Minor 6th", "Major 6th", "Minor 7th", "Major 7th", "Perfect 8th"]);
 Session.set("playMode", [true]); //Changes between mono and poly intervals
 
-Session.set("scoring", ['Interval Ear Trainer', 0, 0]); // 0 trainer 1 the question, 2 running total, 3 is it right or wrong
+Session.set("scoring", ['Chord Ear Trainer', 0, 0]); // 0 trainer 1 the question 2 is it right or wrong
 Session.set("results", []);//  0: "question" 1: questionTotalCount 2: questionTotalWrong
 Session.set("userChoice", []);
 
@@ -25,7 +38,7 @@ var piano = new Howl({
 
 
 //When Ear Trainer is first Rendered
-Template.earTrainerIntervals.onRendered(function(){
+Template.earTrainerChords.onRendered(function(){
 this.$('#seperately').css("background-color","#ff6600");
 this.$('#seperately').css("color","#000000");
 this.$('#together').css("background-color","#ffffff");
@@ -38,9 +51,6 @@ this.$("#score").hide();
 this.$("#repeat").hide();
 this.$(".scoreWindow").hide();
 this.$("#trainerWindow").hide();
-this.$('#trainerIntro').show();
-this.$('#choiceComment').fadeOut("slow");
-
 });
 
 
@@ -55,20 +65,22 @@ Tracker.autorun(function(){
 
 	if(curr[0] == 2 )
 	{
-		var playList = Session.get("playSounds");
-		var intervals = Session.get("intervals");
-		var playMode = Session.get("playMode");
+		var playList = Session.get("playSounds"); //list of selections that can be played
+		var intervals = Session.get("EarTrainerChords"); //list of chords 
+		var playMode = Session.get("playMode"); //Mono or poly?
 
 		//choose a question from the interval availability playList.
 		var question = Math.floor(Math.random() * playList.length);
-		var answer = playList[question];
+		var answer = playList[question]; //The question
 		playList.splice(question, 1); //remove correct answer/question
 
 		//ASSIGN THE SOUNDS TO PLAY
-		var soundA = Math.floor(Math.random() * 48 + 1);
+		var soundA = Math.floor(Math.random() * 45 + 1);
 		var soundB = Number(answer); //interval semitone 
-
-		results.push([intervals[answer], 5]);
+		var soundC;
+		var soundD;
+		
+		results.push([intervals[answer][0], 5]);
 		//console.log('the answer is: ' + answer);
 
 
@@ -150,7 +162,6 @@ Tracker.autorun(function(){
 
 		if(choice[0] == 1)
 		{
-
 			var currScore = Session.get('scoring');
 			var currPlay = Session.get('currentPlay');
 			var results = Session.get('results');
@@ -161,8 +172,6 @@ Tracker.autorun(function(){
 			Session.set('scoring', ['Interval Ear Trainer', currScore[1] + 1, currScore[2] + 1]);
 			Session.set('results', results);
 			this.$('#trainerWindow').css("background-color","#Ff6600");
-			this.$('#choiceComment').fadeOut("slow");
-
 			Session.set('userChoice', [30]);
 		}
 		if(choice[0] == 0)
@@ -175,8 +184,6 @@ Tracker.autorun(function(){
 			results[curr][1] = 0;
 			
 			this.$('#trainerWindow').css("background-color","#FB1511");
-			this.$('#choiceComment').fadeIn("slow");
-
 			Session.set("scoring", ['Interval Ear Trainer', currScore[1] + 1, currScore[2] ]);
 			Session.set('results', results);
 
@@ -186,11 +193,13 @@ Tracker.autorun(function(){
 
 
 
-Template.earTrainerIntervals.events({
+Template.earTrainerChords.events({
 
 	//Click the Start Button
 	'click [id="startBtn"]':function(event, template){
 		var playList = Session.get("playSounds");
+
+		//console.log(playList.length);
 
 		if(playList.length <= 1) //IF NO INTERVALS SELECTED
 		{
@@ -211,7 +220,7 @@ Template.earTrainerIntervals.events({
 			template.$("#together").hide();
 			template.$("#trainerWindow").show();
 			template.$("#repeat").hide();
-			template.$('#trainerIntro').hide();
+
 
 			//CURRENT PLAY SESSION
 			Session.set('currentPlay', [2]);
@@ -222,8 +231,6 @@ Template.earTrainerIntervals.events({
 
 	//Click the Setup Button
 	'click [id="endBtn"]': function(event, template){	
-		Session.set("btnStatus", {0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false, 12: false});
-
 		    Router.go('/score');
 	},
 
@@ -357,7 +364,7 @@ Tracker.autorun(function(){
 		Session.set("playSounds", addtoPlay); //set addtoPlay as the new Session playSounds
 });
 
-Template.earTrainerIntervals.helpers({
+Template.earTrainerChords.helpers({
 
 	scoreTotal(){
 		var curr = Session.get("scoring");
@@ -401,3 +408,5 @@ function resetGameButtons(template){
     template.$("#repeat").hide();
 
 }
+
+*/

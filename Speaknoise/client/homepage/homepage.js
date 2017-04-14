@@ -7,6 +7,5 @@ Template.homepage.events({
 	'click [name=subscribeSubmit]': function(){
 		event.preventDefault();
 
-		console.log("HELLO!!");
 	}
 });
