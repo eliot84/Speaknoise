@@ -189,7 +189,10 @@ Tracker.autorun(function(){
 Template.earTrainerIntervals.events({
 
 	//Click the Start Button
-	'click [id="startBtn"]':function(event, template){
+	'click [id="startBtn"], touchstart [id="startBtn"]':function(event, template){
+		event.preventDefault();
+		event.stopPropagation();
+
 		var playList = Session.get("playSounds");
 
 		if(playList.length <= 1) //IF NO INTERVALS SELECTED
@@ -221,15 +224,18 @@ Template.earTrainerIntervals.events({
 	},
 
 	//Click the Setup Button
-	'click [id="endBtn"]': function(event, template){	
+	'click [id="endBtn"], touchstart[id="endBtn"]': function(event, template){	
+		event.preventDefault();
+		event.stopPropagation();
+
 		Session.set("btnStatus", {0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false, 12: false});
 
 		    Router.go('/score');
 	},
 
-	'click [id="seperately"]': function(event, template){
+	'click [id="seperately"], touchstart [id="seperately"]': function(event, template){
 		event.preventDefault();
-
+		event.stopPropagation();
 			template.$('#seperately').css("background-color","#ff6600");
 			template.$('#seperately').css("color","#000000");
 
@@ -239,9 +245,11 @@ Template.earTrainerIntervals.events({
 		Session.set("playMode", [true]);
 	},
 
-		'click [id="together"]': function(event, template){
+		'click [id="together"], touchstart [id="together"]': function(event, template){
 		event.preventDefault();
-			template.$('#together').css("background-color","#ff6600");
+		event.stopPropagation();
+
+					template.$('#together').css("background-color","#ff6600");
 			template.$('#together').css("color","#000000");
 
 			template.$('#seperately').css("background-color","#ffffff");
@@ -251,9 +259,10 @@ Template.earTrainerIntervals.events({
 	},
 
 
-	'click [id="choiceA"]':function(event, template){
+	'click [id="choiceA"], touchstart [id="choiceA"]':function(event, template){
 		event.preventDefault();
-		
+		event.stopPropagation();
+
 		resetGameButtons(template);
 		var currPlay = Session.get('currentPlay');
 
@@ -269,9 +278,10 @@ Template.earTrainerIntervals.events({
 		}
 
 	},
-	'click [id="choiceB"]':function(event, template){
+	'click [id="choiceB"], touchstart [id="choiceB"]':function(event, template){
 		event.preventDefault();
-		
+		event.stopPropagation();	
+
 		resetGameButtons(template);
 		var currPlay = Session.get('currentPlay');
 
@@ -288,7 +298,8 @@ Template.earTrainerIntervals.events({
 
 	'click [name="selectable"]':function(event, template){
 		event.preventDefault();
-		
+		event.stopPropagation();
+
 		var btnStatus = Session.get("btnStatus"); //Pull in current btnStatus session
 		var selected = event.target.id; //Get the current button ID
 		var changeThis = "#" + selected.toString(); //variable will be used to store the change being made
@@ -313,6 +324,8 @@ Template.earTrainerIntervals.events({
 	//SOUND BOX 
 	'click [id="soundA"]': function(event, template){
 		event.preventDefault();
+		event.stopPropagation();
+
 			var curr = Session.get('currentPlay');
 			piano.play(curr[1]);
 	},
@@ -320,12 +333,15 @@ Template.earTrainerIntervals.events({
 	//SOUND BOX
 	'click [id="soundB"]': function(event, template){
 		event.preventDefault();
-			var curr = Session.get('currentPlay');
+		event.stopPropagation();
+
+					var curr = Session.get('currentPlay');
 			piano.play(curr[2]);
 	},
 
-		'click [id="repeat"]':function(event, template){
+		'click [id="repeat"], touchstart [id="repeat"]':function(event, template){
 		event.preventDefault();
+		event.stopPropagation();
 
 		var curr = Session.get("currentPlay"); 
 			piano.play(curr[1]);

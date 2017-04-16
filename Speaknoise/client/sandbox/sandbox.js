@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import './sandbox.html';
 import { howler } from 'howler';
 
-
+Session.set('clickEvent', "" );
 //CONSTRUCT THE SOUND BANK
 var piano = new Howl({
   src: ['cinterval.wav'],
@@ -15,9 +15,96 @@ piano.play('14');
 piano.play('17');
 */
 
+  Tracker.autorun(function(){
+    console.log('audio: ' + window.AudioContext);
+
+/*
+    try {
+    // Fix up for prefixing
+    window.AudioContext = window.AudioContext||window.webkitAudioContext;
+    context = new AudioContext();
+  }
+  catch(e) {
+    alert('Web Audio API is not supported in this browser');
+  }
+
+*/
+   // Howler.mobileAudioEnable = true;
+  //  Howler.autoSuspend = true;
+
+if ('onpointerdown' in window) {
+    // use 'pointerdown' if pointerEvent API is supported
+    Session.set('clickEvent', 'pointerdown');
+    console.log('pointerEvents used');
+} else if ('ontouchstart' in window) {
+    // use 'touchstart' if touch device
+        Session.set('clickEvent', 'touchstart');
+        console.log('touch device');
+} else {
+    // else use mouse event
+    Session.set('clickEvent', 'click');
+    console.log('old fashioned mouse events');
+}
+
+
+
+});
+
+
+
+
+Template.sandbox.events({
+    'click [id="aBooton"], touchstart[id="aBooton"]': function(event, template){
+        event.stopPropagation()
+        event.preventDefault();
+       // Howler.mobileAutoEnable = false;
+
+
+         var color = "rgb(" + Math.floor(Math.random() * 255)
+      + "," + Math.floor(Math.random() * 255) + ","
+      + Math.floor(Math.random() * 255) + ")";
+        console.log(color);
+        template.$('#aBooton').css("background-color", color);
+
+        console.log('you touched!');
+
+        piano.play('10');
+        piano.play('14');
+        piano.play('17');
+    },
+
+        'click [id="aBootonTwo"], touchstart[id="aBootonTwo"]': function(event, template){
+        event.stopPropagation()
+        event.preventDefault();
+       // Howler.mobileAutoEnable = false;
+
+
+         var color = "rgb(" + Math.floor(Math.random() * 255)
+      + "," + Math.floor(Math.random() * 255) + ","
+      + Math.floor(Math.random() * 255) + ")";
+        console.log(color);
+        template.$('#aBootonTwo').css("background-color", color);
+
+        console.log('you touched!');
+
+        piano.play('10');
+        piano.play('14');
+        piano.play('17');
+    }
+});
+
+Template.sandbox.helpers({
+    clickType(){
+        return Session.get('clickEvent');
+    },
+       audioContext(){
+        return 'audio: ' + window.AudioContext; //Session.get('clickEvent')  ;
+    }
+});
+
 //	[ ["Major", 0, 4, 7], ["Minor", 0, 3, 7], ["Diminished", 0, 3, 6], ["Augmented", 0, 3, 8] ];
 
-
+/*
 Template.sandbox.helpers({
 	shower(){
 
@@ -38,7 +125,7 @@ console.log(items[2].name);
 		return items;
 	}
 });
-
+*/
 //stuff[name: "kelly"];
 
 

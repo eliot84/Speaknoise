@@ -313,9 +313,10 @@ margin-left: 50px;
 }
 
 .footer{
-	position: absolute;
-	bottom: 0;
-	height: 10%;
+ position:fixed;
+ bottom:0;
+ left:0;
+ 	height: 10%;
 	width: 100%;
 	background-color: #ff6600;
 }
