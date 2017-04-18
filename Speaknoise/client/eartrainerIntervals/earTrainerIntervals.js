@@ -322,7 +322,7 @@ Template.earTrainerIntervals.events({
 	},
 
 	//SOUND BOX 
-	'click [id="soundA"]': function(event, template){
+	'click [id="aSound"]': function(event, template){
 		event.preventDefault();
 		event.stopPropagation();
 
@@ -331,7 +331,7 @@ Template.earTrainerIntervals.events({
 	},
 
 	//SOUND BOX
-	'click [id="soundB"]': function(event, template){
+	'click [id="bSound"]': function(event, template){
 		event.preventDefault();
 		event.stopPropagation();
 

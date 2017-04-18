@@ -1,7 +1,11 @@
+
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import './sandbox.html';
+import { Subscriber } from '/imports/api/subscriber.js';
 import { howler } from 'howler';
+import '/imports/style.css';
+
 
 Session.set('clickEvent', "" );
 //CONSTRUCT THE SOUND BANK
@@ -9,12 +13,84 @@ var piano = new Howl({
   src: ['cinterval.wav'],
   sprite: {1: [0, 600], 2: [600, 1200], 3: [1800, 1100], 4: [2800, 1100], 5: [3800, 1100], 6: [4800, 1100], 7: [5800, 1100], 8: [6800, 1100], 9: [7800, 1100], 10: [8800, 1100], 11: [9800, 1100], 12: [10800, 1100], 13: [11800, 1100], 14: [12800, 1100], 15: [13800, 1100], 16: [14800, 1100], 17: [15800, 1100], 18: [16800, 1100], 19: [17800, 1100], 20: [18800, 1100], 21: [19800, 1100], 22: [20800, 1100], 23: [21800, 1100], 24: [22800, 1100], 25: [23800, 1100], 26: [24800, 1100], 27: [25800, 1100], 28: [26800, 1100], 29: [27800, 1100], 30: [28800, 1100], 31: [29800, 1100], 32: [30800, 1100], 33: [31800, 1100], 34: [32800, 1100], 35: [33800, 1100], 36: [34800, 1100], 37: [35800, 1100], 38: [36800, 1100], 39: [37800, 1100], 40: [38800, 1100], 41: [39800, 1100], 42: [40800, 1100], 43: [41800, 1100], 44: [42800, 1100], 45: [43800, 1100], 46: [44800, 1100], 47: [45800, 1100], 48: [46800, 1100], 49: [47800, 1100], 50: [48800, 1100], 51: [49800, 1100], 52: [50800, 1100], 53: [51800, 1100], 54: [52800, 1100], 55: [53800, 1100], 56: [54800, 1100], 57: [55800, 1100], 58: [56800, 1100], 59: [57800, 1100], 60: [58800, 1100], 61: [59800, 1100]} });
 
+
+/*
+Template.sandbox.events({
+    'submit form': function(event){
+        event.preventDefault();
+        /*
+        var email = $('[name=email]').val();
+        var password = $('[name=password]').val();
+        Meteor.loginWithPassword(email, password, function(error){
+            if(error){
+                console.log(error.reason);
+            } else {
+                var currentRoute = Router.current().route.getName();
+                if(currentRoute == "login"){
+                    Router.go("home");
+                }
+            }
+        });
+        
+    }
+});
+*/
+
+
+Template.sandbox.onRendered( function() {
+    Meteor.subscribe('subscribeList');
+
+     $('.login').validate({
+        submitHandler: function (form) {
+        // Prevent double submission
+        if (!this.beenSubmitted) {
+            this.beenSubmitted = true;
+            form.submit();
+        }
+    }
+     });
+});
+
+
+Template.sandbox.events({
+
+  'submit form': function(event){
+    event.preventDefault();
+
+    var emailSub = $('[name="email"]').val();
+    console.log(emailSub);
+
+    //Meteor.call('EmailSubAdd', emailSub);
+    //Meteor.call('sendAnEmail', emailSub);
+    $('[name="email"]').val('');
+  }
+  /*
+
+  'click [id="clicker"]': function(event, template){
+
+      var color = "rgb(" + Math.floor(Math.random() * 255)
+      + "," + Math.floor(Math.random() * 255) + ","
+      + Math.floor(Math.random() * 255) + ")";
+        console.log(color);
+        template.$('#clicker').css("background-color", color);
+
+    Meteor.call('sendAnEmail');
+  } */
+});
+
+Template.sandbox.helpers({
+  showColl(){
+    return Subscriber.find();
+  }
+});
+
+
 /*
 piano.play('10');
 piano.play('14');
 piano.play('17');
 */
-
+/*
   Tracker.autorun(function(){
     console.log('audio: ' + window.AudioContext);
 
@@ -32,6 +108,7 @@ piano.play('17');
    // Howler.mobileAudioEnable = true;
   //  Howler.autoSuspend = true;
 
+/*
 if ('onpointerdown' in window) {
     // use 'pointerdown' if pointerEvent API is supported
     Session.set('clickEvent', 'pointerdown');
@@ -49,11 +126,33 @@ if ('onpointerdown' in window) {
 
 
 });
+*/
 
 
-
-
+/*
 Template.sandbox.events({
+
+ 'click [id="clicker"], touchstart[id="clicker"]': function(event, template){
+        event.stopPropagation()
+        event.preventDefault();
+       // Howler.mobileAutoEnable = false;
+
+
+         var color = "rgb(" + Math.floor(Math.random() * 255)
+      + "," + Math.floor(Math.random() * 255) + ","
+      + Math.floor(Math.random() * 255) + ")";
+        console.log(color);
+        template.$('#clickMe').css("background-color", color);
+
+        console.log('you touched!');
+
+        piano.play('10');
+        piano.play('14');
+        piano.play('17');
+    },
+
+
+
     'click [id="aBooton"], touchstart[id="aBooton"]': function(event, template){
         event.stopPropagation()
         event.preventDefault();
@@ -184,5 +283,5 @@ console.log("sorted: " + results);
     console.log("total correct: " + problemCorrect);
     console.log("Updated Array: " + updated);
 
-
-  */  
+*/
+  
