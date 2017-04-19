@@ -5,9 +5,7 @@ import '/imports/style.css';
 
 
 
-//On Template Render
 Template.homepage.onRendered( function() {
-  //  this.$('[name="thankSubscribe"]').text("");
 
     Meteor.subscribe('subscribeList');
 
@@ -19,20 +17,10 @@ Template.homepage.onRendered( function() {
             required: true,
             email: true
         }
-    },
+    }   
+     });
 
-     	submitHandler: function (event) {
-        // Prevent double submission
-    	console.log('form submitted');
-    	var emailSub = $('[name="email"]').val();
-    	console.log(emailSub);
-
-       }//handler
-        
-
-    
-     }); //add validation
-});//render
+});
 
 
 
@@ -42,15 +30,13 @@ Template.homepage.events({
  	event.preventDefault();
 
  	var emailSub = $('[name="email"]').val();
- 	console.log("yess");
- 	template.$('[name="thankSubscribe"]').text("hello");
-    template.$('[name="email"]').val('');
- 	template.$(".subscribe").hide();
+ 	
+ 	template.$('[name="thankSubscribe"]').text("Thank you for Subscribing");
+    template.$('[name="email"]').hide();
+ 	template.$('[name="subscribeSubmit"]').hide();
 
- 	//Meteor.call('EmailSubAdd', emailSub);
- 	//Meteor.call('sendAnEmail', emailSub);
+ 	Meteor.call('checkVal', emailSub); //send for further validation
  }
-
 
 });
 
