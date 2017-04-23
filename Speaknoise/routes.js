@@ -17,5 +17,6 @@ Router.route('referenceGuide');
 Router.route('score');
 Router.route('sandbox');
 Router.route('comingSoon');
+Router.route('referenceIntervals');
 
 

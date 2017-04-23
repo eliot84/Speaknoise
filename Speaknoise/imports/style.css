@@ -51,7 +51,7 @@
 
 /* TYPOGRAPHY */
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, button{
 font-family: 'Titillium Web', sans-serif;
 color: #000000;
 
@@ -83,6 +83,31 @@ button:focus {outline:0;}
 
 /* SECTION ONE */ 
 
+#main{
+    height: 100vh;
+	width: auto;
+	background-color: red;
+}
+
+#about{
+    height: 100vh;
+	width: auto;
+	background-color: blue;
+}
+
+#contact{
+    height: 100vh;
+	width: auto;
+	background-color: green;
+}
+
+
+
+
+
+
+
+
 [name=logo]{
 	margin-top: 10%;
 	max-width: 100%;
@@ -113,6 +138,7 @@ button:focus {outline:0;}
 	margin:0 auto;
 
 }
+
 
 
 .verticalLine{
@@ -155,7 +181,6 @@ button:focus {outline:0;}
 .imageSpacer{
 	margin-right: 50px;
 }
-
 
 
 
@@ -205,6 +230,11 @@ button:focus {outline:0;}
 	    margin: 0 auto;
 }
 
+   #canvas-holder{
+                width:30%;
+            }
+
+
 
 [section=three]{
 	width: 100%;
@@ -232,8 +262,6 @@ button:focus {outline:0;}
 	color: black;
 	border-color: black;
     outline:none !important;
-
-
 }
 
 [name=selectable]:hover{
@@ -241,7 +269,6 @@ button:focus {outline:0;}
 	color: black;
 	border-color: black;
     outline:none !important;
-
 }
 
 [name=selectable]:focus{
@@ -351,11 +378,13 @@ margin-left: 50px;
 }
 
 .footer{
- position:fixed;
+ /*position:fixed;
  bottom:0;
  left:0;
  	height: 10%;
 	width: 100%;
+	background-color: #ff6600; */
+	margin-top: 100px;
 	background-color: #ff6600;
 }
 
@@ -383,4 +412,69 @@ input{
 
 input.error{
     background-color:rgb(255, 231, 231);
+}
+
+
+#discover{
+	margin-top: 20%;
+}
+
+
+#divLineFooter{
+	height: 100vh;
+	width: 100%;
+}
+
+#theLine{
+	background-color: #ffffff;
+	width: 2px;
+	height: 100vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+/* interval reference */
+
+.intervalsHolder{
+	height: 200px;
+	width: 300px;
+	background-color: #ff6600;
+	margin-bottom: 25px;
+}
+
+.subHeading{
+	margin-top: 50px;
+}
+
+.intBox{
+
+	width: 200px;
+	width: auto;
+	background-color: blue;
+	display: block;
+}
+
+
+/* score */
+#legCorrect{
+	display: inline-block;	
+	height: 15px;
+	width: 15px;
+	background-color: #ff6600;
+}
+
+#legIncorrect{
+	display: inline-block;	
+	width: 15px;
+	height: 15px;
+	background-color: #FF5A5E;
+	margin-left: 10px;
+}
+
+@media (min-width: 700px) {
+    #discover {
+        margin-top: 10%;
+    }
 }

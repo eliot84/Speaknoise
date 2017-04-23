@@ -54,6 +54,30 @@ Template.sandbox.onRendered( function() {
 
 Template.sandbox.events({
 
+  "click #mainlink": function() { 
+    scrollFunction('#main');
+  },
+
+  "click #aboutlink": function() {
+    scrollFunction('#about');
+  },
+
+  "click #contactlink": function() {
+    event.preventDefault();
+
+    scrollFunction('#discover');
+  }
+
+});
+
+var scrollFunction = function(idstring) {
+  $('html, body').animate({
+    scrollTop: $(idstring).offset().top
+  }, 2000);
+};
+
+  /*
+
   'submit form': function(event){
     event.preventDefault();
 
@@ -63,7 +87,7 @@ Template.sandbox.events({
     //Meteor.call('EmailSubAdd', emailSub);
     //Meteor.call('sendAnEmail', emailSub);
     $('[name="email"]').val('');
-  }
+  } */
   /*
 
   'click [id="clicker"]': function(event, template){
@@ -76,7 +100,7 @@ Template.sandbox.events({
 
     Meteor.call('sendAnEmail');
   } */
-});
+
 
 Template.sandbox.helpers({
   showColl(){

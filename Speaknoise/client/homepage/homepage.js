@@ -36,10 +36,21 @@ Template.homepage.events({
  	template.$('[name="subscribeSubmit"]').hide();
 
  	Meteor.call('checkVal', emailSub); //send for further validation
- }
+ },
+
+   'click #discover': function() {
+    event.preventDefault();
+
+    scrollFunction('#two');
+  }
 
 });
 
 
 
+var scrollFunction = function(idstring) {
+  $('html, body').animate({
+    scrollTop: $(idstring).offset().top
+  }, 2000);
+};
 	
