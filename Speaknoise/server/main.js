@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { Subscriber } from '../imports/api/subscriber.js';
-import { Profile } from '../imports/api/profile.js';
+import { Profiler } from '../imports/api/profiler.js';
 
 
 Meteor.startup(() => {
@@ -21,9 +21,10 @@ if(Meteor.isServer)
 	});
 
 	Meteor.publish('profiler', function(curr){
+		console.log("this is in the curr:" + curr);
 		console.log('this is curr: ' + curr);
-		console.log(Profile.find({currentUser: curr}) );
-		return Profile.find({ currentUser: curr });
+		//console.log(Profiler.find({currentUser: curr}) );
+		return Profiler.findOne({ currentUser: curr });
 	});
 
 
@@ -43,7 +44,7 @@ if(Meteor.isServer)
 	  		lastName: lastName
 	  	}
 
-	  	  Profile.insert(data);
+	  	  Profiler.insert(data);
 	  },	
 
 

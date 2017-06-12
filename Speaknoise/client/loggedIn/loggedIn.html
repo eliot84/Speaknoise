@@ -10,19 +10,20 @@
 
 
 <div class="container">
-	<br /><br />
-	<a href="{{pathFor route='homepage'}}">
-	<button class="btn btn-lg btn-default" name="start">Home</button></a>
 	
-	<h2>Welcomje, </h2>
+	<!-- <a href="{{pathFor route='homepage'}}">
+	<button class="btn btn-lg btn-default" name="start">Home</button></a>
+	-->
+	{{userName}}
+	<!--<h2>Welcome {{#each userName}}{{firstName}}{{/each}}, </h2> -->
+ <a href="#" class="logout">Logout</a>
 
 
-You are now logged in :-) <Br /><br />
 
- Your Info: <br /><br />
+
+
  	ID: {{userID}}<br />
- 	First Name: {{firstName}}
- <li><a href="#" class="logout">Logout</a></li>
+ 
 </div>
 
 

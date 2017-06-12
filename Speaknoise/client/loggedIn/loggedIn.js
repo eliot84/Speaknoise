@@ -1,15 +1,15 @@
 import { Meteor} from 'meteor/meteor';
-import { Profile } from '../imports/api/profile.js';
+import { Profiler } from '/imports/api/profiler.js';
 import './loggedIn.html';
 import '/imports/style.css';
 
 
 
 Template.loggedIn.onRendered(function(){
-
+ console.log("hello 1");
 	var curr = Meteor.userId();
 	Meteor.subscribe('profiler', curr);
-   console.log('it is now in client: ' + profile.find());
+   console.log('it is now in client: ' + Profiler.find());
 });
 
 
@@ -29,8 +29,9 @@ Template.loggedIn.helpers({
 		return Meteor.userId();
 	},
 
-	firstName(){
-		//return 'Eliot';
+	userName(){
+		return Profiler.find().count();
+		
 	}
 
 	
