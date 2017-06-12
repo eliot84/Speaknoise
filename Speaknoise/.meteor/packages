@@ -26,3 +26,5 @@ session
 chart:chart
 email
 themeteorchef:jquery-validation
+okgrow:router-autoscroll
+dferber:prerender

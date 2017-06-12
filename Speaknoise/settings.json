@@ -1,5 +1,9 @@
 {
   "public": {
 
+  },
+  "PrerenderIO": {
+    "serviceUrl": "http://service.prerender.io/",
+    "token": "2a0GdvDsUqrG3W5o4QYs"
   }
 }

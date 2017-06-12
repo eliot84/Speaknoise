@@ -24,7 +24,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  			this.$("#countdown").text(days + "D" + "  :  " + 
+  			this.$("#countdown").text((days + 20) + "D" + "  :  " + 
   									  hours + "H" + "  :  " + 
   									  minutes + "M" + "  :  " + 
 									  seconds + "S");

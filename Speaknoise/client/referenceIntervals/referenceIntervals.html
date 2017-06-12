@@ -4,7 +4,7 @@
 
 <div class="header">
 <a href="{{pathFor route='homepage'}}">
-<img src="./logosmall.png" class="logoimage" >
+<img src="./logosmall.png" class="logoimage " >
 </a>
 </div>
 
@@ -14,175 +14,227 @@
 
 
 <div class="container">
-	<br /><br /><br />
+	<br /><br />
 	<a href="{{pathFor route='homepage'}}">
-	<button class="btn btn-default">Home</button></a>
+	<button class="btn btn-lg btn-default">Home</button></a>
 
 	<a href="{{pathFor route='earTrainerIntervals'}}">
-	<button class="btn btn-default">Back</button></a>
+	<button class="btn btn-lg btn-default">Back</button></a>
 	
 	<h2>Ear Trainer: Intervals</h2>
 	<div id="trainerIntro">
-	<p>Intervals are the basic building blocks of musical sounds that in pattern can be used to create melodies &amp; harmonies. Learning to identify what specific sounds through hearing will improve your abilities to identify &amp; playback music you hear, as well as creating new music and improvisation.</p> 
 
-	<p>An interval is the measurement of the distance between two pitches (sounds) being played.</p>
-	</div>
+	<p>An interval in music is the measurement of the distance between two pitches (sounds) being played. That distance is comprised of half steps and / or whole steps as can be seen from the piano diagram below. Learning to identify what specific sounds through hearing will improve your abilities to identify &amp; playback music you hear, as well as creating new music and improvisation.</p>
+
+<p>One way to start learning intervals is to associate their sounds with the beginnings of songs you know. Below, you will find example songs, but feel free to make your own list of song names that match the intervals. </p>
+</div>
 
 
 		<br /><br />
-
 <div class="row align-items-center" >
-	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
 
+<img src="./notes/pianoIntNote.png" class="img-responsive centerized" alt="Responsive image">
 
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 <h4 class="subHeading">Unison</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="0"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="0"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200" id="0"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="1" name="300" id="0"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="0">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="0">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="0">Together</button>
+			<h5>Interval Steps: None</h5>
 </div>
+	</div>
+
+
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Minor 2nd</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="1"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="1"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="1"></div></a>
+			<a href="#" name="soundBox"><div class="sound d4Flat" title="1" name="300" id="1"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="1">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="1">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="1">Together</button>
+			<h5>Interval Steps: 1 Half Step</h5>
+			<h5>Example Song: Jaws</h5>
+
+</div>
 </div>
 
 
-
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Major 2nd</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="2"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="2"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200" id="2"></div></a>
+			<a href="#" name="soundBox"><div class="sound d4" title="1" name="300" id="2"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="2">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="2">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="2">Together</button>
+			<h5>Interval Steps: 1 Whole Step</h5>
+			<h5>Example Song: Happy Birthday</h5>
+
+</div>
 </div>
 
 
 
-
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Minor 3rd</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="3"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="3"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="3"></div></a>
+			<a href="#" name="soundBox"><div class="sound e4flat" title="1" name="300" id="3"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="3">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="3">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="3">Together</button>
+			<h5>Interval Steps: 1 Whole Step and 1 Half Step</h5>
+			<h5>Example Song: Lullaby</h5>
+
+</div>
 </div>
 
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Major 3rd</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="4"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="4"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="4"></div></a>
+			<a href="#" name="soundBox"><div class="sound e4" title="1" name="300" id="4"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="4">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="4">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="4">Together</button>
+			<h5>Interval Steps: 2 Whole Step</h5>
+			<h5>Example Song: When the Saints Go Marching In</h5>
+
+</div>
 </div>
 
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Perfect 4th</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="5"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="5"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="5"></div></a>
+			<a href="#" name="soundBox"><div class="sound f4" title="1" name="300" id="5"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="5">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="5">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="5">Together</button>
+			<h5>Interval Steps: 2 Whole Steps and 1 Half Step</h5>
+			<h5>Example Song: Bridal March</h5>
+			<h5></h5>
+
+</div>
 </div>
 
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
-
-<h4 class="subHeading">Augmented 4th / Diminished 5th</h4> 
+<h4 class="subHeading">Augmented 4th or Diminished 5th</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="6"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="6"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="6"></div></a>
+			<a href="#" name="soundBox"><div class="sound f4Sharpg4Flat" title="1" name="300" id="6"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="6">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="6">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="6">Together</button>
+			<h5>Interval Steps: 3 Whole Steps</h5>
+			<h5>Example Song: Maria (West Side Story)</h5>
+
+</div>
 </div>
 
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Perfect 5th</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="7"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="7"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="7"></div></a>
+			<a href="#" name="soundBox"><div class="sound g4" title="1" name="300" id="7"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="7">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="7">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="7">Together</button>
+			<h5>Interval Steps: 3 Whole Steps and 1 Half Step</h5>
+			<h5>Example Song: Twinkle Twinkle Little Star</h5>
+
+</div>
 </div>
 
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Minor 6th</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="8"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="8"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="8"></div></a>
+			<a href="#" name="soundBox"><div class="sound a4Flat" title="1" name="300" id="8"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="8">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="8">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="8">Together</button>
+			<h5>Interval Steps: 4 Whole Steps</h5>
+			<h5>Example Song: The Entertainer</h5>
+
+</div>
 </div>
 
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Major 6th</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="9"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="9"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="9"></div></a>
+			<a href="#" name="soundBox"><div class="sound a4" title="1" name="300" id="9"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="9">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="9">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="9">Together</button>
+			<h5>Interval Steps: 4 Whole Steps and 1 Half Step</h5>
+			<h5>Example Song: NBC Theme</h5>
+
+</div>
 </div>
 
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Minor 7th</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="10"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="10"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200"  id="10"></div></a>
+			<a href="#" name="soundBox"><div class="sound b4Flat" title="1" name="300" id="10"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="10">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="10">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="10">Together</button>
+			<h5>Interval Steps: 5 Whole Steps</h5>
+			<h5>Example Song: Theres A Place for Us</h5>
+
+</div>
 </div>
 
 
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Major 7th</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="11"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="11"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200" id="11"></div></a>
+			<a href="#" name="soundBox"><div class="sound b4" title="1" name="300" id="11"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="11">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="11">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="11">Together</button>
+			<h5>Interval Steps: 5 Whole Steps and 1 Half Step</h5>
+			<h5>Example Song: Don't Know Why </h5>
+</div>
 </div>
 
-
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 text-center" >
 
 <h4 class="subHeading">Perfect 8th</h4> 
 <div class="intervalsHolder text-center">
-			<a href="#" name="soundBox"><div class="sound" title="0" id="12"></div></a>
-			<a href="#" name="soundBox"><div class="sound" title="1" id="12"></div></a>
+			<a href="#" name="soundBox"><div class="sound c4" title="0" name="200" id="12"></div></a>
+			<a href="#" name="soundBox"><div class="sound c5" title="1" name="300" id="12"></div></a>
 
-			<button class="btn btn-default" name="selectable" value="0" id="12">Seperate</button>
+			<button class="btn btn-default" name="selectable" value="0" id="12">Separate</button>
 			<button class="btn btn-default" name="selectable" value="1" id="12">Together</button>
+			<h5>Interval Steps: 6 Whole Steps</h5>
+			<h5>Example Song: Somewhere Over the Rainbow</h5>
+
+</div>
 </div>
 
 
+</div>
 
-</div>
-</div>
 
 
 </div> <!--container -->

@@ -13,9 +13,10 @@ var piano = new Howl({
 
 
 Template.referenceIntervals.onRendered(function(){
-
+	scrollTop();
 	//this.$("button[name='seperately']").css("background-color","#ff6600");
 	//this.$("button[name='seperately']").css("color", "#000000");
+				this.$('[id="0"][name="1"]' ).css("background-color","#FF5A5E");
 
 
 
@@ -25,39 +26,57 @@ Template.referenceIntervals.onRendered(function(){
 
 Template.referenceIntervals.events({
 
- 'click [name="selectable"]': function(){
+ 'click [name="selectable"], touchstart [name="selectable"]': function(event, template){
 	event.preventDefault();
 	event.stopPropagation();
  	
  	var selected = parseInt(event.target.id); //Get the current button ID
  	var playMode = parseInt(event.target.value);
+ 	var actualID = event.target.id;
+ 	var actualName = event.target.name;
  	var intA = 10;
  	var intB = intA + selected;
+ 	var makeWhite = 0;
 
  	intA = intA.toString();
  	intB = intB.toString();
 
  	if(playMode == 0){
 		piano.play(intA);
-			piano.once('end', function(){
+						//template.$('[id=' + actualID + ']' + '[name=' +  +']' ).css("background-color","#FF5A5E");
+						seperateOne(actualID, template);
+
+			piano.once('end', function(){	
 				piano.play(intB);
-					piano.on('end', function(){
-				});			
+					seperateTwo(actualID, template);
+				piano.once('end', function(){
+					seperateEnd(actualID, template);
+
+				});		
+
 			});
  	}
  	else{
+ 		together(actualID, template);
  		piano.play(intA);
 		piano.play(intB);
+		piano.once('end', function(){
+			togetherEnd(actualID, template);
+		});
+
+
  	}	
+
+ 
+
  },
 
- 'click [name="soundBox"]': function(){
+ 'click [name="soundBox"]': function(event, template){
  	event.preventDefault();
 	event.stopPropagation();
- 		console.log('hello');
 
  	var selected = parseInt(event.target.id); //Get the current button ID
- 	var playSound = parseInt(event.target.title);
+ 	var playSound = event.target.title;
  	var intA = 10;
  	var intB = intA + selected;
 
@@ -65,7 +84,7 @@ Template.referenceIntervals.events({
  	intB = intB.toString();
 
  	if(playSound == 0){
- 		console.log('hello');
+
  		piano.play(intA);
  	}
  	else{
@@ -79,3 +98,36 @@ Template.referenceIntervals.events({
 
 
 });
+
+
+function seperateOne(actualID, template){
+template.$('[id=' + actualID + '][name$="200"]').css("background-color","#FF5A5E");
+}
+
+function seperateTwo(actualID, template){
+template.$('[id=' + actualID + '][name$="300"]').css("background-color","#FF5A5E");
+template.$('[id=' + actualID + '][name$="200"]').css("background-color","#FFFFFF");
+}
+
+function seperateEnd(actualID, template){
+template.$('[id=' + actualID + '][name$="300"]').css("background-color","#FFFFFF");
+
+}
+
+function together(actualID, template){
+template.$('[id=' + actualID + '][name$="300"]').css("background-color","#FF5A5E");
+template.$('[id=' + actualID + '][name$="200"]').css("background-color","#FF5A5E");
+
+
+}
+
+function togetherEnd(actualID, template){
+template.$('[id=' + actualID + '][name$="200"]').css("background-color","#FFFFFF");
+template.$('[id=' + actualID + '][name$="300"]').css("background-color","#FFFFFF");
+
+}
+
+function scrollTop() {
+    window.scrollTo(0, 0);
+}
+

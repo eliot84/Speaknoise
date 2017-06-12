@@ -1,0 +1,70 @@
+
+
+<template name="loggedIn">
+
+<div class="header">
+<a href="{{pathFor route='homepage'}}">
+<img src="./logosmall.png" class="logoimage" >
+</a>
+</div>
+
+
+<div class="container">
+	<br /><br />
+	<a href="{{pathFor route='homepage'}}">
+	<button class="btn btn-lg btn-default" name="start">Home</button></a>
+	
+	<h2>Welcomje, </h2>
+
+
+You are now logged in :-) <Br /><br />
+
+ Your Info: <br /><br />
+ 	ID: {{userID}}<br />
+ 	First Name: {{firstName}}
+ <li><a href="#" class="logout">Logout</a></li>
+</div>
+
+
+
+<div class="row footer">
+	<div class="vcenter"></div>
+ 
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+
+      <a href="https://www.facebook.com/Speaknoise-289573061498531/" target="_blank">
+        <img src="./facebook.png"></a>
+
+      <a href="https://twitter.com/speaknoise" target="_blank"><img src="./twitter.png"></a>
+
+       <a href="mailto:support@speaknoise.com"><img src="./email.png" class=""></a><br /><br /><br /><br />
+        	<p class="whiteText">©2017 Speaknoise LLC</p><br />
+	</div><!--col-->
+</div> <!-- row -->
+
+
+</template>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<template name="login">
+	<form class="login">
+		<p> <input type="email" name="email" placeholder="email"></p>
+		<p><input type="password" name="password" placeholder="password"></p>
+
+		<p><input type="submit" value="login"></p>
+
+		<a href="{{pathFor route='register'}}">Register</a>
+
+	</form>
+</template>
+-->

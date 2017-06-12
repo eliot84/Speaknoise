@@ -1,5 +1,265 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web');
 
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+.transit{
+	width: auto;
+	height: 300px;
+	background-color: #ff6600;
+}
+
+
+.blue{
+	height: 100px;
+	width: 100px;
+	background-color: blue;
+}
+
+.rounded{
+	    border-radius: 25px;
+}
+
+.interBtn: hover{
+	background-color: #FFBDBF;
+}
+.reddish{
+	background-color: #FFBDBF;
+}
+/*
+.btn-default{
+	border: 5px solid #FF5A5E;
+	color: #0099cc;
+} */
+
+.container{
+	margin-bottom: 200px;
+	position: relative;
+}
+
+.orange{
+	color: #ff6600;
+}
+/* Interval Reference */
+
+.speaker{
+   background-image:url('./icons/speaker.png');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+   border-radius: 15px;	
+}
+
+.speakerHold{
+	width: auto;
+	height: 150px;
+}
+
+.answerStatus{
+	width: auto;
+	padding-top: 10px;
+	height: 30px;
+}
+
+.messyNotes{
+   background-image:url('./icons/messyNotes.png');
+   background-position: 102% 102%;
+   background-repeat: no-repeat;
+   height: auto;
+   width: auto;
+   padding-bottom: -100px;
+}
+
+.intPiano{
+   background-image:url('./notes/pianoIntNote.png');
+   background-position:center;
+   background-repeat: no-repeat;
+     background-color: #ffffff;
+   height: 500%;
+   width: 700px;	
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.c4{
+   background-image:url('./notes/c4.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.c4Sharp{
+   background-image:url('./notes/c4#.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.d4Flat{
+   background-image:url('./notes/d4b.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+.d4{
+   background-image:url('./notes/d4.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.d4Sharp{
+   background-image:url('./notes/d4#.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.e4flat{
+   background-image:url('./notes/e4b.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.e4{
+   background-image:url('./notes/e4.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+
+.f4{
+   background-image:url('./notes/f4.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.f4Sharp{
+   background-image:url('./notes/f4#.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.f4Sharpg4Flat{
+   background-image:url('./notes/f4#g4b.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.g4{
+   background-image:url('./notes/g4.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.g4Sharp{
+   background-image:url('./notes/g4#.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.a4Flat{
+   background-image:url('./notes/a4b.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+.a4{
+   background-image:url('./notes/a4.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.a4Sharp{
+   background-image:url('./notes/a4#.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.b4Flat{
+   background-image:url('./notes/b4b.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.b4{
+   background-image:url('./notes/b4.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+.c5{
+   background-image:url('./notes/c5.svg');
+   background-position:center;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   height: 100px;
+   width: 100px;
+}
+
+
+.holdWelcome{
+	height: auto;
+	width: auto;
+	margin-bottom: 50px;
+}
+
+
+
+
+
+
+
 .tColor{
 	color: #000000;
 }
@@ -158,24 +418,25 @@ button:focus {outline:0;}
 }
 
 .video{
-	height: 240px;
-	width: 320px;
-	background-color: #ff6600;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 10%;
-	margin-bottom: 10%;
+
+	height: 350px;
+	width: 560px;
+	left: 0;
+	padding-left: 1px;
+	padding-top: 1px;
+
 
 }
 
 .leftAligner{
 	    text-align: left;
+	    padding-top: -1px;
 
 }
 
 .vcenter {
   
-    margin-top: 30px;
+   margin-top: 30px; 
 }
 
 .imageSpacer{
@@ -225,7 +486,14 @@ button:focus {outline:0;}
 
 [section=two]{
 	width: 100%;
-	height: 100%;
+	height: auto;
+	background-color: #ffffff;
+	    margin: 0 auto;
+}
+
+#two{
+	width: 100%;
+	height: auto;
 	background-color: #ffffff;
 	    margin: 0 auto;
 }
@@ -268,8 +536,19 @@ button:focus {outline:0;}
 	background-color: white;
 	color: black;
 	border-color: black;
+	background-color: #FFBDBF;
     outline:none !important;
 }
+
+
+[name=start]:hover{
+	background-color: white;
+	color: black;
+	border-color: black;
+	background-color: #FFBDBF;
+    outline:none !important;
+}
+
 
 [name=selectable]:focus{
 	background-color: white;
@@ -297,20 +576,57 @@ button:focus {outline:0;}
 /* EAR TRAINER */
 
 
+
+.learnPractice {
+	height: 200px;
+	width: 300px;
+	border-radius: 15px;
+	background-color: #ff6600;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 200px;   
+}
+
+.learnPractice h1{
+	color: white;
+	line-height: 200px;   
+}
+
+.learnPractice:hover{
+	background-color: #FF5A5E;
+    text-decoration: none;
+}
+
+.setupSection{
+	background-color: #ff6600;
+}
+
+
+
 .logoimage{
 margin-top: 35px;
 margin-left: 15px;
+width: 300px;
 }
+
 .choices{
 	width: 300px;
-    height: 40%;
+    height: 30%;
     position:absolute;
     bottom:0;
 }
 
+.centerized{
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .img-responsive{
-	   width: 30%;
+
+	/*width: 30%; */
 }
 
 
@@ -323,16 +639,29 @@ h1{
 }
 
 #trainerWindow{
-	height: 300px;
+	height: 325px;
 	width: 300px;
 	background-color: #ff6600;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
+	position: relative;
+	border-radius: 15px;
+}
+
+#trainerWindowSmall{
+	height: 425px;
+	width: 300px;
+	background-color: #ff6600;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	position: relative;
+	border-radius: 15px;
 }
 
 .scoreWindow{
-	height: 300px;
+	height: 325px;
 	width: 300px;
 	background-color: #ff6600;
 	margin-left: auto;
@@ -340,6 +669,8 @@ h1{
 	padding-top: 1px;
 	padding-left: 20px;
 	margin-bottom: 20px;
+	border-radius: 15px;
+
 }
 
 #score{
@@ -365,7 +696,15 @@ margin-left: 50px;
 	float: left;
 }
 
-
+.goBtm{
+width: auto;
+position:absolute;
+ bottom:0; 
+ left:0;
+  width:200px;
+  height: 70px;
+  margin-left: 45px;
+}
 
 [name="selectable"]{
 	visibility:visible;
@@ -378,14 +717,13 @@ margin-left: 50px;
 }
 
 .footer{
- /*position:fixed;
- bottom:0;
- left:0;
- 	height: 10%;
-	width: 100%;
-	background-color: #ff6600; */
-	margin-top: 100px;
-	background-color: #ff6600;
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 250px;
+    margin-top: -3em;
+	background-color: #ff6600; 
+
 }
 
 
@@ -438,10 +776,12 @@ input.error{
 /* interval reference */
 
 .intervalsHolder{
-	height: 200px;
+	height: 230px;
 	width: 300px;
 	background-color: #ff6600;
 	margin-bottom: 25px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .subHeading{
@@ -456,6 +796,13 @@ input.error{
 	display: block;
 }
 
+.error{
+	height: 80vh;
+	width: auto;
+}
+.features{
+	max-width: 40%;
+}
 
 /* score */
 #legCorrect{

@@ -17,16 +17,16 @@ var correct = parseInt(curr[2]);
 var incorrect = parseInt(curr[1]) - correct;
 var total = correct + incorrect;
 
+
+//If there is no score display nothing
 if(total == 0)
 {
     console.log('there is no score');
     this.$("#canvas-holder").hide();
+    this.$(".scoreTitle").hide();
     this.$("#scoreTotal").hide();
     this.$("#scoreCount").hide();
     this.$("#statusScore").text("No questions were answered.");
-
-
-
 }
 else
 {

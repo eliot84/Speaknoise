@@ -1,0 +1,142 @@
+
+
+<template name="practiceEarTrainingIntervals">
+<div class="header">
+<a href="{{pathFor route='homepage'}}">
+<img src="./logosmall.png" class="logoimage" >
+</a>
+</div>
+
+<!-- //// -->
+<div class="container" id="setupSection">
+<br /><br />
+<a href="{{pathFor route='homepage'}}">
+	<button class="btn btn-lg btn-default" name="start">Home</button></a>
+
+<a href="{{pathFor route='earTrainerIntervals'}}">
+	<button class="btn btn-lg btn-default" name="start">Back</button></a>
+	<h2>Ear Trainer: Intervals Setup</h2><br />
+
+
+
+<div class="row text-center">	
+
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-left">
+<p class="practiceTitle">1. Monophonic or Polyphonic:</p> <br />
+</div>
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<button class="btn btn-lg btn-default" id="seperately">Separately</button>
+<button class="btn btn-lg btn-default" id="together">Together</button>
+<br /><br />
+<p class="practiceTitle text-left">2. Pick Intervals:</p> <br />
+
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="0">Unison</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="1">Minor 2nd</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="2">Major 2nd</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="3">Minor 3rd</button>
+<button class="btn btn-lg btn-default interBtn interBtn" name="selectable" id="4">Major 3rd</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="5">Perfect 4th</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="6">Augmented 4th / Diminished 5th</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="7">Perfect 5th</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="8">Minor 6th</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="9">Major 6th</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="10">Minor 7th</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="11">Major 7th</button>
+<button class="btn btn-lg btn-default interBtn" name="selectable" id="12">Perfect 8th</button>
+<br /><br />
+<p class="practiceTitle text-left">3. Practice:</p> 
+<h4 id="textIntro"></h4>
+
+<div class="learnPractice" id="startBtn"><h1>Practice</h1></div>
+
+</div>
+</div>
+</div> <!--container setupSection -->
+
+
+<!-- //// -->
+<div class="container practiceSection">
+	<br /><br /><br />
+<div class="row align-items-center" >
+
+	<div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+
+   		<div id="trainerWindowSmall" class="text-center">
+   			<div class="answerStatus">
+   		  		<p id="choiceCommentSmall"> Answer Incorrect </p>
+   		  	</div>
+   		  		<div class="speakerHold">
+	  <a href="#" id="aSoundSmall"><div class="sound speaker" id="soundA"></div></a>
+	  <a href="#" id="bSoundSmall"><div class="sound speaker" id="soundB"></div></a>
+	</div>
+			<button class="btn btn-lg btn-default" name="start" id="repeatSmall">Play Again</button>
+
+<br /><br />
+			<button class="btn btn-lg btn-default" name="start" id="choiceASmall">{{choiceA}}</button>
+			<button class="btn btn-lg btn-default" name="start" id="choiceBSmall">{{choiceB}}</button><br /><br />
+				<button id="endBtn" class="btn btn-lg btn-default">End Session</button>
+
+
+			<div class="goBtm"><h4 class="whiteText">Total Correct: {{scorePoints}} <br /><br />  Total Count: {{scoreTotal}}</h4></div>
+   </div><!-- trainer window -->
+</div> <!-- column -->
+
+	<div class="hidden-xs col-sm-6 col-md-6 col-lg-6" >
+		<div id="trainerWindow" class="text-center">
+		<div class="answerStatus">
+							<p id="choiceComment"> Answer Incorrect </p>
+						</div>
+			<a href="#" id="aSound"><div class="sound speaker rounded" id="soundA"></div></a>
+			<a href="#" id="bSound"><div class="sound speaker rounded" id="soundB"></div></a>
+			<button class="btn btn-lg btn-default" name="start" id="repeatSmall">Play Again</button>
+			<div class="choices">
+
+			<button class="btn btn-lg btn-default" name="start" id="choiceA">{{choiceA}}</button>
+			<button class="btn btn-lg btn-default" name="start" id="choiceB">{{choiceB}}</button>
+		</div>
+			<br /><Br />	
+		</div>  <!-- trainerwindow -->
+	</div><!-- col 1 -->
+	<div class="hidden-xs col-sm-6 col-md-6 col-lg-6">
+		<div class="scoreWindow">
+			<h2 class="whiteText">Score:</h2><br />
+
+			<div class="score">
+			<h4 id="score" class="whiteText">Total Correct: {{scorePoints}} <br /><br />
+											 Total Count: {{scoreTotal}} 
+			</h4><br />
+			<div class="text-center">
+			<button id="endBtn" class="btn btn-lg btn-default">End Session</button>
+		</div>
+			</div>
+		</div> <!-- scorewindow -->
+	</div><!-- col 2 -->
+
+
+</div> <!-- Row -->
+</div> <!-- container -->
+
+
+
+
+
+
+
+<div class="row footer">
+	<div class="vcenter"></div>
+ 
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+
+      <a href="https://www.facebook.com/Speaknoise-289573061498531/" target="_blank">
+        <img src="./facebook.png"></a>
+
+      <a href="https://twitter.com/speaknoise" target="_blank"><img src="./twitter.png"></a>
+
+       <a href="mailto:support@speaknoise.com"><img src="./email.png" class=""></a><br /><br /><br /><br />
+        	<p class="whiteText">©2017 Speaknoise LLC</p><br />
+	</div><!--col-->
+</div> <!-- row -->
+	
+</template>

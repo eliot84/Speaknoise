@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { Subscriber } from '../imports/api/subscriber.js';
+import { Profile } from '../imports/api/profile.js';
 
 
 Meteor.startup(() => {
@@ -13,17 +14,50 @@ Meteor.startup(() => {
 
 if(Meteor.isServer)
 {
+	//console.log( Subscriber.find({}).fetch() );
 
 	Meteor.publish('subscribeList', function(){
 		return Subscriber.find();
 	});
 
-
+	Meteor.publish('profiler', function(curr){
+		console.log('this is curr: ' + curr);
+		console.log(Profile.find({currentUser: curr}) );
+		return Profile.find({ currentUser: curr });
+	});
 
 
 
 
 	Meteor.methods({
+
+	  'newProfile': function(currentUser, firstName, lastName){
+  	 	console.log("it works!");
+	  	var currentUser = currentUser;
+	  	var firstName = firstName;
+	  	var lastName = lastName;
+
+  		var data = {
+	  		currentUser: currentUser,
+	  		firstName: firstName,
+	  		lastName: lastName
+	  	}
+
+	  	  Profile.insert(data);
+	  },	
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	  'checkVal': function(emailSubmitted){
 	  	console.log('you are in checker');

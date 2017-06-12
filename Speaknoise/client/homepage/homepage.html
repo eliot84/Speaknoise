@@ -10,17 +10,27 @@
 
 
 <div class="aBox text-center">
-<h3 class="whiteText">Music Learning at your Fingertips</h3>
+<!--<h2 class="whiteText">Music Learning at your Fingertips</h2>-->
 
+<!--
   <form class="form-inline subscribe">
   	<div class="form-group">
-      <input type="email" name="email" class="form-control" id="subscribeEmail" placeholder="E-Mail">
+      <input type="email" name="email" class="form-control orange" id="subscribeEmail" placeholder="E-Mail">
   	</div>
-  			<button type="submit" name="subscribeSubmit" class="btn btn-default">Subscribe</button>
-        <h4 class="whiteText" name="thankSubscribe"></h4>
+  			<button type="submit" name="subscribeSubmit" class="btn btn-default orange">Subscribe</button>
+        <h4 class="whiteText" name="thankSubscribe orange"></h4>
   </form>
+-->
 <br /><br />
-      <button type="submit" id="discover" class="btn btn-default">Discover</button>    
+<h2 class="whiteText">Music Learning at your Fingertips</h2>
+
+<!-- Login -->
+{{> login}}
+
+
+
+
+      <button type="submit" id="discover" class="btn btn-default orange">Discover</button>    
 </div>
 
 <div id="divLineFooter" class="text-center">
@@ -30,26 +40,26 @@
 
 </section>
 
-
-
-
-
 <div id="two" class="container">
-
-<div class="row">
-	<div class="colx-sx-12 col-sm-12 col-md-6 col-lg-6">
-    <h1 >Welcome,</h1>
+<h1>Welcome,</h1>
 <div class="lines"></div>
-		<P>Because we believe that music belongs to everyone, we are using innovative technology to provide interactive music learning resources and tools to the world.</P>
-	</div>
 
-	<div class="colx-sx-12 col-sm-12 col-md-6 col-lg-6">
-		<div class="video"><br />
-		<h4 class="whiteText">VIDEO INFOMERCIAL GOES HERE </h4></div>
+  <div class="colx-sx-12 col-sm-12 col-md-5 col-lg-5">
+      <div class="holdWelcome text-center">
+        <P>Because we believe that music belongs to everyone, we are using innovative technology to provide interactive music learning resources and tools to the world.</P></div>
+      </div>
+        <div class="colx-sx-0 col-sm-0 col-md-1 col-lg-1"></div>
+
+
+
+  <div class="colx-sx-12 col-sm-12 col-md-6 col-lg-6">   
+   <div class="video">
+    <iframe width="500" height="281" src="https://www.youtube.com/embed/mdggtrWzqnc" frameborder="0" allowfullscreen></iframe>
   </div>
+</div>
 
-</div> <!-- row -->
-</div> <!-- container -->
+</div><!-- end section 2 -->
+
 
 
 
@@ -59,9 +69,9 @@
 
 
 <div class="row text-center">
-<div class="col-xs-12 col-md-6 text-center"><img src="./ear.png" name="features" class="" >
+<div class="col-xs-12 col-md-6 text-center"><img src="./icons/earnoise.png" class="features" >
 </div>
-<div class="col-xs-12 col-md-6">
+<div class="col-xs-12 col-md-5">
 <h3 class="whiteText leftAligner">Ear Training</h3>
 
 
@@ -69,62 +79,54 @@
 
 <p class="leftAligner">Our goal is to help you recognize common patterns of sounds used in music to help you gain a greater understanding of what you are hearing. The ability to hear sounds and to be able to play them back is an essential skill in every musician’s set of tools.</p>
 </div>
-</div><br />
+</div><br /><br />
 
 <div class="row">
 <div class="col-xs-12 col-md-6 text-center">
-<img src="./metronome.png" name="features" class="">
+<img src="./icons/metronoise.png" class="features">
 </div>
-<div class="col-xs-12 col-md-6">
+<div class="col-xs-12 col-md-5">
 <h3 class="whiteText leftAligner">Rhythmic Training</h3>
 
 
 <p class="leftAligner">Learning to speak in rhythm gives you the ability to playback music being read with precision. Rhythms come in a wide variety of patterns, and our Rhythm Trainer will guide you to become a rhythmic warrior. When ready, simply click start and practice your rhythmic dictation with a simple tap of a button.</p>
 </div>
-</div><br />
+</div><br /><br />
 
 
 <div class="row text-center">
 <div class="col-xs-12 col-md-6 text-center">
-<img src="./treble.png" name="features" class="">
+<img src="./icons/treblenoise.png" class="features">
 </div>
-<div class="col-xs-12 col-md-6">
+<div class="col-xs-12 col-md-5">
 <h3 class="whiteText leftAligner">Notation Training</h3>
 
 
 <p class="leftAligner">Being able to read music opens a world of musical literature waiting to be heard. Our Notation Trainer will guide you through an understanding of the musical glyphicons, what they are called and what they represent. In addition, for those of you using tablets and other annotation devices, you will be able to practice your music writing skills with our handwriting notation builder.</p>
 </div>
-</div><br />
+</div><br /><br />
 
 
 
-<div class="row">
-<div class="col-xs-12 col-md-6 text-center">
-<img src="./globe.png" name="features" class="">
-</div>
-<div class="col-xs-12 col-md-6">
-<h3 class="whiteText leftAligner">Private Music Lessons</h3>
 
-
-<p class="leftAligner">The best way to embark on your music learning adventures is through private music lessons. At Speaknoise we offer distance private lessons through video conferencing technology allowing you to be able to schedule for classes at your availability and leisure.
-
-All lessons are taught one on one with a certified teacher no batteries needed, any tablet, laptop or computer with a microphone and a camera will do. This feature is coming soon, pre-register to be the first to be informed.</p>
-</div>
-</div><br />
 
 
 
 
 </div>
-<div section="four" class="container">
+<div section="four" class="container messyNotes">
 <h1>Available Services</h1>
 <div class="lines"></div>
+<br />
+<div class="text-center">
+<h2>Ear Trainer: Intervals</h2>
+<a href="{{pathFor route='earTrainerIntervals'}}"><button class="btn btn-default">Let's Go!</button></a>
+<br /><br /><br />
+<h4>More Coming Soon!</h4>
 
-<p>Interval Ear Trainer</p>
-<a href="{{pathFor route='earTrainerIntervals'}}"><button class="btn btn-default">Try Me</button></a>
+</div>
 
 
-<h3>More Coming Soon!</h3>
 </div>
 
 <div section="five" class="container">
@@ -149,19 +151,17 @@ All lessons are taught one on one with a certified teacher no batteries needed, 
 	</div><!--col-->
 </div> <!-- row -->
 </div><!-- container -->
+</template>
 
 
+<template name="login">
+  <form class="login">
+    <p> <input type="email" name="email" placeholder="email"></p>
+    <p><input type="password" name="password" placeholder="password"></p>
 
+    <p><input type="submit" value="login"></p>
 
+    <a href="{{pathFor route='register'}}">Register</a>
 
-
-
-
-
-
-
-
-
-	
-		
+  </form>
 </template>
